@@ -1,5 +1,9 @@
 <?php
-/* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see docs/LICENSE */
+/* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see docs/LICENSE
+ *
+ * 10 March 2022 - Modified by Marcel Alers.
+ *
+ */
 
 use Jumbojett\OpenIDConnectClient;
 
@@ -37,16 +41,29 @@ class ilAuthProviderOpenIdConnect extends ilAuthProvider implements ilAuthProvid
             return false;
         }
 
-        $auth_token = ilSession::get('oidc_auth_token');
-        $this->getLogger()->debug('Using token: ' . $auth_token);
+        if ($this->settings->isLogoutAuth0Style()) {
+            $authenticated = ilSession::get('oidc_authenticated');
+            if ($authenticated) {
+                if (!isset($_GET["fromAuth0Logout"]) || isset($_GET["fromAuth0Logout"]) != 1) {
+                    // User just clicked the logout button -> Redirect user to Auth0 logout
+                    header("Location: "."https://".$this->settings->getProvider()."/v2/logout?client_id=".urlencode($this->settings->getClientId())."&returnTo=".urlencode(rtrim(ILIAS_HTTP_PATH, '/')."/logout.php?fromAuth0Logout=1"));
+                    exit;
+                } else {
+                    ilSession::set('oidc_authenticated', '');
+                }
+            }
+        } else {
+            $auth_token = ilSession::get('oidc_auth_token');
+            $this->getLogger()->debug('Using token: ' . $auth_token);
 
-        if (strlen($auth_token)) {
-            ilSession::set('oidc_auth_token', '');
-            $oidc = $this->initClient();
-            $oidc->signOut(
-                $auth_token,
-                ILIAS_HTTP_PATH . '/logout.php'
-            );
+            if (strlen($auth_token)) {
+                ilSession::set('oidc_auth_token', '');
+                $oidc = $this->initClient();
+                $oidc->signOut(
+                    $auth_token,
+                    ILIAS_HTTP_PATH . '/logout.php'
+                );
+            }
         }
     }
 
@@ -99,13 +116,17 @@ class ilAuthProviderOpenIdConnect extends ilAuthProvider implements ilAuthProvid
             $claims = $oidc->getVerifiedClaims(null);
             $this->getLogger()->dump($claims, \ilLogLevel::DEBUG);
             $status = $this->handleUpdate($status, $claims);
-
+            
             // @todo : provide a general solution for all authentication methods
             $_GET['target'] = (string) $this->getCredentials()->getRedirectionTarget();
 
             if ($this->settings->getLogoutScope() == ilOpenIdConnectSettings::LOGOUT_SCOPE_GLOBAL) {
-                $token = $oidc->requestClientCredentialsToken();
-                ilSession::set('oidc_auth_token', $token->access_token);
+                if ($this->settings->isLogoutAuth0Style()) {
+                    ilSession::set('oidc_authenticated', true);
+                } else {
+                    $token = $oidc->requestClientCredentialsToken();
+                    ilSession::set('oidc_auth_token', $token->access_token);
+                }
             }
             return true;
         } catch (Exception $e) {

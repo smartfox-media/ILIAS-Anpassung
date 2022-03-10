@@ -12,6 +12,8 @@
 * https://www.ilias.de
 * https://github.com/ILIAS-eLearning
 *
+* 10 March 2022 - Modified by Marcel Alers.
+*
 /**
 * ILIAS language file (All entries)
 *
@@ -1967,6 +1969,9 @@ auth#:#auth_oidc_settings_logout_scope_global#:#Global abmelden
 auth#:#auth_oidc_settings_logout_scope_global_info#:#Wenn aktiviert, wird beim Abmelden sowohl die OpenID-Connect-Sitzung als auch die ILIAS-Sitzung beendet.
 auth#:#auth_oidc_settings_logout_scope_local#:#nur bei ILIAS abmelden
 auth#:#auth_oidc_settings_logout_scope_local_info#:#Wenn aktiviert, wird beim Abmelden nur die ILIAS-Sitzung beendet.
+auth#:#auth_oidc_settings_logout_auth0_style_type#:#Auth0 Logout
+auth#:#auth_oidc_settings_logout_auth0_style_option#:#Nutze den Logout-Endpunkt von Auth0
+auth#:#auth_oidc_settings_logout_auth0_style#:#Auth0 Logout
 auth#:#auth_oidc_settings_provider#:#Provider-Url
 auth#:#auth_oidc_settings_secret#:#Client-Schlüssel
 auth#:#auth_oidc_settings_section_user_sync#:#Einstellungen zur Benutzersynchronisierung

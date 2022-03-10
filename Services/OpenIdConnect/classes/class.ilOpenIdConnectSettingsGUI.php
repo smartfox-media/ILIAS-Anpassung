@@ -1,5 +1,9 @@
 <?php
-/* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see docs/LICENSE */
+/* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see docs/LICENSE
+ *
+ * 10 March 2022 - Modified by Marcel Alers.
+ *
+ */
 
 /**
  * Class ilOpenIdConnectSettingsGUI
@@ -285,6 +289,17 @@ class ilOpenIdConnectSettingsGUI
         );
         $logout_scope->setValue($this->settings->getLogoutScope());
 
+        // logout auth0 style
+        $use_logout_auth0_style = new ilCheckboxInputGUI(
+            $this->lng->txt('auth_oidc_settings_logout_auth0_style_type'),
+            'logout_auth0_style'
+        );
+        $use_logout_auth0_style->setOptionTitle(
+            $this->lng->txt('auth_oidc_settings_logout_auth0_style_option')
+        );
+        $use_logout_auth0_style->setChecked($this->settings->isLogoutAuth0Style());
+        $form->addItem($use_logout_auth0_style);
+
         // scope global
         $global_scope = new ilRadioOption(
             $this->lng->txt('auth_oidc_settings_logout_scope_global'),
@@ -412,6 +427,7 @@ class ilOpenIdConnectSettingsGUI
         $this->settings->setLoginElementText((string) $form->getInput('le_text'));
         $this->settings->setLoginPromptType((int) $form->getInput('login_prompt'));
         $this->settings->setLogoutScope((int) $form->getInput('logout_scope'));
+        $this->settings->useLogoutAuth0Style((bool) $form->getInput('logout_auth0_style'));
         $this->settings->useCustomSession((bool) $form->getInput('custom_session'));
         $this->settings->setSessionDuration((int) $form->getInput('session_duration'));
         $this->settings->allowSync((bool) $form->getInput('sync'));
