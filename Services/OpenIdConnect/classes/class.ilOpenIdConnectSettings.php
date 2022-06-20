@@ -1,5 +1,9 @@
 <?php
-/* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see docs/LICENSE */
+/* Copyright (c) 1998-2009 ILIAS open source, Extended GPL, see docs/LICENSE
+ *
+ * 10 March 2022 - Modified by Marcel Alers.
+ *
+ */
 
 /**
  * Class ilOpenIdConnectSettingsGUI
@@ -86,6 +90,11 @@ class ilOpenIdConnectSettings
      * @var int
      */
     private $logout_scope;
+
+    /**
+     * @var bool
+     */
+    private $logout_auth0_style = false;
 
     /**
      * @var bool
@@ -294,6 +303,22 @@ class ilOpenIdConnectSettings
     public function getLogoutScope() : int
     {
         return $this->logout_scope;
+    }
+
+    /**
+     * @param bool $a_stat
+     */
+    public function useLogoutAuth0Style(bool $a_auth0_style)
+    {
+        $this->logout_auth0_style = $a_auth0_style;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLogoutAuth0Style() : bool
+    {
+        return $this->logout_auth0_style;
     }
 
     /**
@@ -530,6 +555,7 @@ class ilOpenIdConnectSettings
         $this->storage->set('le_type', $this->getLoginElementType());
         $this->storage->set('prompt_type', $this->getLoginPromptType());
         $this->storage->set('logout_scope', $this->getLogoutScope());
+        $this->storage->set('logout_auth0_style', (int) $this->isLogoutAuth0Style());
         $this->storage->set('custom_session', (int) $this->isCustomSession());
         $this->storage->set('session_duration', (int) $this->getSessionDuration());
         $this->storage->set('allow_sync', (int) $this->isSyncAllowed());
@@ -563,6 +589,7 @@ class ilOpenIdConnectSettings
         $this->setLoginElementType($this->storage->get('le_type'));
         $this->setLoginPromptType((int) $this->storage->get('prompt_type', self::LOGIN_ENFORCE));
         $this->setLogoutScope((int) $this->storage->get('logout_scope', self::LOGOUT_SCOPE_GLOBAL));
+        $this->useLogoutAuth0Style((bool) $this->storage->get('logout_auth0_style'), false);
         $this->useCustomSession((bool) $this->storage->get('custom_session'), false);
         $this->setSessionDuration((int) $this->storage->get('session_duration', 60));
         $this->allowSync((bool) $this->storage->get('allow_sync'), false);

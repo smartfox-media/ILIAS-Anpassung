@@ -81,7 +81,7 @@ class ilSoapWebLinkAdministration extends ilSoapAdministration
 
         try {
             include_once './Modules/WebResource/classes/class.ilWebLinkXmlWriter.php';
-            $writer = new ilWebLinkXmlWriter();
+            $writer = new ilWebLinkXmlWriter(false);
             $writer->setObjId($obj_id);
             $writer->write();
         
