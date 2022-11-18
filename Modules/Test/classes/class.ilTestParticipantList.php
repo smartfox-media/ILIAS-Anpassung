@@ -239,7 +239,7 @@ class ilTestParticipantList implements Iterator
             $scoring->setMaxPoints((float) $row['max_points']);
             
             $scoring->setPassed((bool) $row['passed']);
-            $scoring->setFinalMark((string) $row['mark_official']);
+            $scoring->setFinalMark((string) $row['mark_short']);
             
             $this->getParticipantByActiveId($row['active_fi'])->setScoring($scoring);
             
@@ -340,11 +340,12 @@ class ilTestParticipantList implements Iterator
                 $row['percent_result'] = $participant->getScoring()->getPercentResult();
                 $row['passed_status'] = $participant->getScoring()->isPassed();
                 $row['final_mark'] = $participant->getScoring()->getFinalMark();
-
-                $row['pass_finished'] = ilObjTest::lookupLastTestPassAccess(
+                $row['last_scored_access'] = ilObjTest::lookupLastTestPassAccess(
                     $participant->getActiveId(),
                     $participant->getScoring()->getScoredPass()
                 );
+                $row['finished_passes'] = $participant->getFinishedTries();
+                $row['has_unfinished_passes'] = $participant->hasUnfinishedPasses();
             }
             
             $rows[] = $row;

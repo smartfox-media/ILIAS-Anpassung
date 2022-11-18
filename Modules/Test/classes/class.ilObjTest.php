@@ -4218,10 +4218,10 @@ class ilObjTest extends ilObject implements ilMarkSchemaAware, ilEctsGradesEnabl
         $found['test']['result_tstamp'] = $results['tstamp'];
         $found['test']['obligations_answered'] = $results['obligations_answered'];
 
-        if ((!$found['pass']['total_reached_points']) or (! $found['pass']['total_max_points'])) {
+        if ((!$found['pass']['total_reached_points']) or (!$found['pass']['total_max_points'])) {
             $percentage = 0.0;
         } else {
-            $percentage = ($found['pass']['total_reached_points'] /  $found['pass']['total_max_points']) * 100.0;
+            $percentage = ($found['pass']['total_reached_points'] / $found['pass']['total_max_points']) * 100.0;
 
             if ($percentage < 0) {
                 $percentage = 0.0;
@@ -7083,8 +7083,13 @@ class ilObjTest extends ilObject implements ilMarkSchemaAware, ilEctsGradesEnabl
         $newObj->setTmpCopyWizardCopyId($a_copy_id);
         $this->cloneMetaData($newObj);
 
-        // #27082
-        $newObj->setOfflineStatus(true);
+        //copy online status if object is not the root copy object
+        $cp_options = ilCopyWizardOptions::_getInstance($a_copy_id);
+        if ($cp_options->isRootNode($this->getRefId())) {
+            $newObj->setOfflineStatus(true);
+        } else {
+            $newObj->setOfflineStatus($this->getOfflineStatus());
+        }
         $newObj->update();
 
         $newObj->setAnonymity($this->getAnonymity());
@@ -7156,6 +7161,7 @@ class ilObjTest extends ilObject implements ilMarkSchemaAware, ilEctsGradesEnabl
         $newObj->setCharSelectorDefinition($this->getCharSelectorDefinition());
         $newObj->setSkillServiceEnabled($this->isSkillServiceEnabled());
         $newObj->setResultFilterTaxIds($this->getResultFilterTaxIds());
+        $newObj->setPassDeletionAllowed($this->isPassDeletionAllowed());
         $newObj->setFollowupQuestionAnswerFixationEnabled($this->isFollowupQuestionAnswerFixationEnabled());
         $newObj->setInstantFeedbackAnswerFixationEnabled($this->isInstantFeedbackAnswerFixationEnabled());
         $newObj->setForceInstantFeedbackEnabled($this->isForceInstantFeedbackEnabled());
@@ -7951,7 +7957,8 @@ class ilObjTest extends ilObject implements ilMarkSchemaAware, ilEctsGradesEnabl
             "max_points" => $this->lng->txt("tst_maximum_points"),
             "percent_value" => $this->lng->txt("tst_percent_solved"),
             "mark" => $this->lng->txt("tst_mark"),
-            "ects" => $this->lng->txt("ects_grade")
+            "ects" => $this->lng->txt("ects_grade"),
+            "passed" => $this->lng->txt("tst_mark_passed"),
         );
         $results[] = $row;
         if (count($participants)) {
@@ -8000,7 +8007,8 @@ class ilObjTest extends ilObject implements ilMarkSchemaAware, ilEctsGradesEnabl
                     "max_points" => $max_points,
                     "percent_value" => $percentvalue,
                     "mark" => $mark,
-                    "ects" => $ects_mark
+                    "ects" => $ects_mark,
+                    "passed" => $user_rec['passed'] ? '1' : '0',
                 );
                 $results[] = $prepareForCSV ? $this->processCSVRow($row, true) : $row;
             }
@@ -10281,7 +10289,8 @@ class ilObjTest extends ilObject implements ilMarkSchemaAware, ilEctsGradesEnabl
                             "question_id" => $question->getId(),
                             "question_title" => $question->getTitle(),
                             "reached_points" => $reached_points,
-                            "max_points" => $max_points
+                            "max_points" => $max_points,
+                            "passed" => $user_rec['passed'] ? '1' : '0',
                         );
                         $results[] = $row;
                     }
@@ -10588,72 +10597,6 @@ class ilObjTest extends ilObject implements ilMarkSchemaAware, ilEctsGradesEnabl
         }
     }
 
-    public function createRandomSolutions($number)
-    {
-        global $DIC;
-        $ilDB = $DIC['ilDB'];
-        
-        // 1. get a user
-        $query = "SELECT usr_id FROM usr_data";
-        $result = $ilDB->query($query);
-        while ($data = $ilDB->fetchAssoc($result)) {
-            $activequery = sprintf(
-                "SELECT user_fi FROM tst_active WHERE test_fi = %s AND user_fi = %s",
-                $ilDB->quote($this->getTestId()),
-                $ilDB->quote($data['usr_id'])
-            );
-            $activeresult = $ilDB->query($activequery);
-            if ($activeresult->numRows() == 0) {
-                $user_id = $data['usr_id'];
-                if ($user_id != 13) {
-                    include_once "./Modules/Test/classes/class.ilTestSession.php";
-                    $testSession = new ilTestSession();
-                    $testSession->setRefId($this->getRefId());
-                    $testSession->setTestId($this->getTestId());
-                    $testSession->setUserId($user_id);
-                    $testSession->saveToDb();
-                    $passes = ($this->getNrOfTries()) ? $this->getNrOfTries() : 10;
-                    $random = new \ilRandom();
-                    $nr_of_passes = $random->int(1, $passes);
-                    $active_id = $testSession->getActiveId();
-                    for ($pass = 0; $pass < $nr_of_passes; $pass++) {
-                        include_once "./Modules/Test/classes/class.ilTestSequence.php";
-                        $testSequence = new ilTestSequence($active_id, $pass, $this->isRandomTest());
-                        $testSequence->loadFromDb();
-                        $testSequence->loadQuestions();
-                        if (!$testSequence->hasSequence()) {
-                            $testSequence->createNewSequence($this->getQuestionCount(), $shuffle);
-                            $testSequence->saveToDb();
-                        }
-                        for ($seq = 1; $seq <= count($this->questions); $seq++) {
-                            $question_id = $testSequence->getQuestionForSequence($seq);
-                            $objQuestion = ilObjTest::_instanciateQuestion($question_id);
-                            $assSettings = new ilSetting('assessment');
-                            require_once 'Modules/TestQuestionPool/classes/class.ilAssQuestionProcessLockerFactory.php';
-                            $processLockerFactory = new ilAssQuestionProcessLockerFactory($assSettings, $ilDB);
-                            $processLockerFactory->setQuestionId($objQuestion->getId());
-                            $processLockerFactory->setUserId($testSession->getUserId());
-                            include_once("./Modules/Test/classes/class.ilObjAssessmentFolder.php");
-                            $processLockerFactory->setAssessmentLogEnabled(ilObjAssessmentFolder::_enabledAssessmentLogging());
-                            $objQuestion->setProcessLocker($processLockerFactory->getLocker());
-                            $objQuestion->createRandomSolution($testSession->getActiveId(), $pass);
-                        }
-                        $testSession->increasePass();
-                        $testSession->setLastSequence(0);
-                        $testSession->setLastFinishedPass($pass);
-                        $testSession->setSubmitted(1);
-                        $testSession->setSubmittedTimestamp(date('Y-m-d H:i:s'));
-                        $testSession->saveToDb();
-                    }
-                    $number--;
-                    if ($number == 0) {
-                        return;
-                    }
-                }
-            }
-        }
-    }
-    
     public function getResultsForActiveId($active_id)
     {
         global $DIC;
