@@ -205,8 +205,13 @@ class ilStartUpGUI
      */
     protected function showLoginPage(ilPropertyFormGUI $form = null)
     {
-        global $tpl, $ilSetting;
+        global $tpl, $ilSetting, $ilCtrl;
 
+        // Prevent login-form on other urls than /login.php, to be able to redirect a user to another login-page, using a proxy.
+        $path = $_SERVER['REQUEST_URI'];
+        if (!str_starts_with($path, "/login.php")) {
+            $ilCtrl->redirectToURL("login.php");
+        }
 
         $this->getLogger()->debug('Showing login page');
 
