@@ -651,7 +651,7 @@ class ilInitialisation
         }
 
         define('IL_COOKIE_HTTPONLY', true); // Default Value
-        define('IL_COOKIE_EXPIRE', 0);
+        define('IL_COOKIE_EXPIRE', 43200);
         define('IL_COOKIE_PATH', $cookie_path);
         define('IL_COOKIE_DOMAIN', '');
     }
