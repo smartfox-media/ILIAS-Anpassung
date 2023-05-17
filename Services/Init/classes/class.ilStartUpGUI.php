@@ -1398,10 +1398,11 @@ class ilStartUpGUI
         $client_id = $_COOKIE["ilClientId"];
         ilUtil::setCookie("ilClientId", "");
 
+
         // redirect and show logout information
         $this->ctrl->setParameter($this, 'client_id', $client_id);
         $this->ctrl->setParameter($this, 'lang', $user_language);
-        $this->ctrl->redirect($this, 'showLogout');
+        $this->showLoginPage();
     }
 
     /**
