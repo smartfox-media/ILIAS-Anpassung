@@ -671,12 +671,20 @@ class ilInitialisation
             $cookie_secure = !$ilSetting->get('https', 0) && ilHTTPS::getInstance()->isDetected();
             define('IL_COOKIE_SECURE', $cookie_secure); // Default Value
 
+            $options = [
+                "lifetime" => IL_COOKIE_EXPIRE,
+                "path" => IL_COOKIE_PATH,
+                "domain" => IL_COOKIE_DOMAIN,
+                "secure" => IL_COOKIE_SECURE,
+                "httponly" => IL_COOKIE_HTTPONLY
+            ];
+
+            if ($cookie_secure) {
+                $options["samesite"] = "none";
+            }
+
             session_set_cookie_params(
-                IL_COOKIE_EXPIRE,
-                IL_COOKIE_PATH,
-                IL_COOKIE_DOMAIN,
-                IL_COOKIE_SECURE,
-                IL_COOKIE_HTTPONLY
+                $options
             );
         }
     }
