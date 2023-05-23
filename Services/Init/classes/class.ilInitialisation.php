@@ -680,7 +680,7 @@ class ilInitialisation
             ];
 
             if ($cookie_secure) {
-                $options["samesite"] = "none";
+                $options["samesite"] = "None";
             }
 
             session_set_cookie_params(
