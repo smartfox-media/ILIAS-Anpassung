@@ -905,6 +905,7 @@ assessment#:#log_user_not_entered_values#:#Der Benutzer hat keine Werte eingetra
 assessment#:#log_user_solution_willingly_deleted#:#Der Benutzer hat seine Antwort entfernt.
 assessment#:#log_wrong_test_password_entered#:#Teilnehmer hat falsches Testpasswort eingegeben.
 assessment#:#longmenu#:#Longmenu
+assessment#:#longmenu_answeroptions_differ#:#Diese Frage funktioniert nicht richtig, denn sie hat nicht die gleiche Anzahl Lücken im Text wie in den Antwortoptionen.
 assessment#:#longmenu_text#:#‘Long Menu’-Text
 assessment#:#mailnottype#:#Ein Versand findet auch beim Beenden einzelner Testdurchläufe statt
 assessment#:#mailnottype_desc#:#Der Besitzer des Tests wird auch dann benachrichtigt, wenn die Anzahl Durchläufe nicht beschränkt ist.
@@ -947,6 +948,7 @@ assessment#:#new_category#:#Neue Einheiten-Kategorie
 assessment#:#new_unit#:#Neue Einheit
 assessment#:#next_question#:#Weiter
 assessment#:#next_question_rows#:#Fragen %d - %d von %d >>
+assessment#:#no_manual_feedback_export_info#:#Manuelle Rückmeldungen werden nicht exportiert.
 assessment#:#no_passed_mark#:#Sie müssen wenigstens einen Notenschritt als BESTANDEN markieren! Das Notenschema wurde nicht gespeichert!
 assessment#:#no_question_selected_for_move#:#Bitte wählen Sie mindestens eine Frage aus, um sie zu verschieben!
 assessment#:#no_questions_available#:#Es sind keine Fragen verfügbar!
@@ -1675,6 +1677,7 @@ assessment#:#tst_password_form#:#Eingabe Testpasswort
 assessment#:#tst_password_introduction#:#Dieser Test kann nur mit einem Testpasswort gestartet bzw. fortgeführt werden. Bitte tragen Sie das Passwort hier ein.
 assessment#:#tst_percent_solved#:#Prozent gelöst
 assessment#:#tst_player_answer_saved_and_locked#:#Antwort wird gespeichert und gesperrt. Dadurch kann die Antwort nicht mehr geändert werden.
+assessment#:#tst_please_select_source_pool#:#Bitte wählen Sie einen Fragenpool aus.
 assessment#:#tst_please_select_target_for_pool_derives#:#Bitte wählen Sie einen Zielcontainer aus.
 assessment#:#tst_position#:#Frage %s von %s
 assessment#:#tst_position_without_total#:#Frage %s
@@ -2570,6 +2573,8 @@ book#:#book_reminder_day#:#Vor der Reservierung
 book#:#book_reminder_day_info#:#Sendet eine Liste eigener anstehenden Reservierungen und zusätzlich eine Gesamtliste an Benutzer mit Schreibrechten.
 book#:#book_reminder_days#:#Tag(e)
 book#:#book_reminder_setting#:#Reminder
+book#:#book_rerun_assignments#:#Zuweisungen erneut durchführen
+book#:#book_rerun_confirmation#:#Achtung. Die Zuweisung nach Präferenzen ist bereits erfolgt. In seltenen Fällen kann ein Abbruch des Prozesses zu keinen oder unvollständigen Buchungen führen und ein erneutes Starten des Prozesses notwendig machen. Bevor sie den automatischen Prozess erneut starten, müssen sie alle Reservierungen entfernen um Mehrfachzuweisungen zu verhindern.
 book#:#book_reservation_available#:#%s verfügbar
 book#:#book_reservation_confirmed#:#Die Buchung wurde erfolgreich durchgeführt.
 book#:#book_reservation_failed#:#Die Buchung ist fehlgeschlagen.
@@ -2577,7 +2582,7 @@ book#:#book_reservation_failed_overbooked#:#Die Buchung ist fehlgeschlagen, da d
 book#:#book_reservation_filter_period#:#Filter „Datumsbereich“
 book#:#book_reservation_filter_period_info#:#Der Default-Wert für den Datumsbereich-Filter in Tagen ab dem aktuellem Datum.
 book#:#book_reservation_fix_info#:#Die Reservierung kann nur für festgelegte Zeiten durchgeführt werden.
-book#:#book_reservation_overview#:#Reservierungen anderer Benutzer
+book#:#book_reservation_overview#:#Reservierungen aller Benutzer
 book#:#book_reservation_status_5#:#Storniert
 book#:#book_reservation_title#:#Buchungsanfrage für
 book#:#book_reservations_list#:#Reservierungen
@@ -3399,7 +3404,7 @@ cntr#:#cntr_view_info_simple#:#Alle Objekte werden in einer einzigen Liste darge
 cntr#:#cntr_view_sessions#:#Sitzungsansicht
 cntr#:#cntr_view_simple#:#Einfache Liste
 cntr#:#cont_custom_icon#:#Angepasstes Icon
-cntr#:#container_import_zip_file_invalid#:#Die hochgeladene Datei ist kein gültiger ILIAS Export. Um Verzeichnisstrukturen hochzuladen benutzen Sie bitte ein Datei-Objekt.
+cntr#:#container_import_zip_file_invalid#:#Die hochgeladene Datei ist keine gültige ILIAS-Exportdatei. Um Verzeichnisstrukturen hochzuladen, benutzen Sie bitte ein Datei-Objekt.
 cntr#:#edit_questions#:#Fragen bearbeiten
 cntr#:#exc_next_deadline_single#:#Abgabefrist
 cntr#:#msg_no_downloadable_objects#:#Keine herunterladbaren Objekte gefunden.
@@ -3407,9 +3412,9 @@ cntr#:#objects_duplicated#:#Die Objekte wurden kopiert.
 cntr#:#prtf_create_portfolio_from_template#:#Portfolio aus Vorlage erstellen
 cntr#:#sorting_new_items_at_bottom#:#Unten
 cntr#:#sorting_new_items_at_top#:#Oben
-cntr#:#sorting_new_items_direction#:#Sortierungsrichtung neuer Objekte
-cntr#:#sorting_new_items_order#:#Reihenfolge neuer Objekte
-cntr#:#sorting_new_items_position#:#Position neuer Objekte
+cntr#:#sorting_new_items_direction#:#Ausrichtung
+cntr#:#sorting_new_items_order#:#Reihenfolge
+cntr#:#sorting_new_items_position#:#Einfügen neuer Objekte
 cntr#:#tab_back_to_repository#:#Zurück zum Magazin
 common#:#HH#:#SS:MM
 common#:#absolute_path#:#Absoluter Pfad
@@ -4419,7 +4424,7 @@ common#:#lang_timeformat#:#H:i:s
 common#:#lang_timeformat_no_sec#:#H:i
 common#:#lang_uninstall_changes#:#Lokale Änderungen entfernen
 common#:#lang_uninstall_changes_confirm#:#Möchten Sie wirklich alle lokalen Änderungen an den ausgewählten Sprachen löschen und diese auf den Standard der aktuellen ILIAS-Version zurücksetzen?
-common#:#lang_uninstall_confirm#:#Möchten Sie die ausgewählten Sprachen wirklich deinstallieren?
+common#:#lang_uninstall_confirm#:#Möchten Sie die ausgewählten Sprachen wirklich deinstallieren? Damit gehen auch alle lokalen Änderungen an den jeweiligen Sprachen unwiederbringlich verloren, wenn diese nicht zuvor gesichert oder exportiert wurden.
 common#:#langfile_found#:#Sprachdatei gefunden
 common#:#language#:#Sprache
 common#:#language_not_installed#:#ist nicht installiert. Bitte installieren Sie die Sprache zuerst.
@@ -4637,7 +4642,7 @@ common#:#mm_repo_tree_view_act#:#Baumansicht an
 common#:#mm_repo_tree_view_deact#:#Baumansicht aus
 common#:#mm_repository#:#Magazin
 common#:#mm_skills#:#Kompetenzen
-common#:#mm_staff_list#:#Mitarbeiter
+common#:#mm_staff_list#:#Mitarbeiterliste
 common#:#mm_tags#:#Tags
 common#:#mm_task_derived_tasks#:#To-Dos
 common#:#mme_lost_item_reason#:#Eintrag wird nicht mehr angeboten.
@@ -5587,6 +5592,7 @@ common#:#short_inst_name#:#Kurztitel
 common#:#short_inst_name_info#:#Dieser Text erscheint zusammen mit dem Seitentitel als Titel des Browser-Tabs. Wird hier nichts eingetragen, erscheint 'ILIAS'.
 common#:#show#:#Anzeigen
 common#:#show_all_details#:#Alle Details anzeigen
+common#:#show_content#:#Inhalt anzeigen
 common#:#show_details#:#Details anzeigen
 common#:#show_filter#:#Filter anzeigen
 common#:#show_hidden_sections#:#Weitere Informationen anzeigen &raquo;
@@ -5610,8 +5616,10 @@ common#:#soap_user_administration_desc#:#Wenn eingeschaltet, kann ILIAS über di
 common#:#soap_wsdl_path#:#WSDL-Pfad
 common#:#soap_wsdl_path_info#:#Hier können Sie den Pfad zur WSDL-Datei angeben, die von ILIAS für den Web-Service genutzt werden soll. Falls Sie dieses Feld leer lassen, wird folgender Pfad als Standard verwendet:%s
 common#:#sort_ascending#:#Aufsteigend sortieren
+common#:#sort_ascending_long#:#Sortierung ändern zu aufsteigend
 common#:#sort_by_this_column#:#Nach dieser Spalte sortieren
 common#:#sort_descending#:#Absteigend sortieren
+common#:#sort_descending_long#:#Sortierung ändern zu absteigend
 common#:#sort_inherit_prefix#:#Durch Kurs/Gruppe bestimmt
 common#:#sorting_asc#:#Aufsteigend
 common#:#sorting_creation_header#:#Nach Erstellungsdatum
@@ -5620,7 +5628,7 @@ common#:#sorting_desc#:#Absteigend
 common#:#sorting_direction#:#Sortierungsrichtung
 common#:#sorting_header#:#Sortierung
 common#:#sorting_info_inherit#:#Wird die Sortierung des übergeordneten Kurses bzw. der Gruppe geändert, ändert sich auch diese Sortierung.
-common#:#sorting_info_manual#:#Die enthaltenen Objekte können in einer gewünschten Reihenfolge angeordnet werden. Bitte legen Sie zusätzlich fest, wie neue Objekte in eine vorhandene manuelle Reihenfolge einsortiert werden sollen.
+common#:#sorting_info_manual#:#Bestehende Objekte können in eine gewünschte Reihenfolge gebracht werden. Legen Sie zusätzlich fest, an welcher Stelle neue Objekte eingefügt und in welcher Reihenfolge und Ausrichtung diese angeordnet werden.
 common#:#sorting_info_title#:#Die enthaltenen Objekte werden automatisch nach ihrem Titel sortiert.
 common#:#sorting_manual_header#:#Manuell
 common#:#sorting_save#:#Sortierung speichern
@@ -5737,7 +5745,6 @@ common#:#udf_delete_sure#:#Sind Sie sicher, dass Sie diese Feld und alle zugehö
 common#:#udf_duplicate_entries#:#Die Werte müssen eindeutig sein.
 common#:#udf_field_deleted#:#Das Feld wurde gelöscht.
 common#:#udf_name_already_exists#:#Ein Feld mit diesem Namen existiert bereits. Bitte wählen Sie einen anderen Feldnamen.
-common#:#udf_required_and_visible_requires_changeable#:#Wenn die Einstellungen "Erforderliche Angabe" und "Sichtbar in den persönlichen Daten" aktiviert sind, muss auch "Kann durch Benutzer selbst im Profil geändert werden" aktiviert sein
 common#:#udf_required_requires_visib_reg#:#Die Einstellung "Erforderliche Angabe" erfordert die Einstellung "Sichtbar im Registrierungsformular"
 common#:#udf_type_date#:#Datum
 common#:#udf_type_datetime#:#Datum und Uhrzeit
@@ -5812,7 +5819,7 @@ common#:#user_not_found#:#Der Benutzer wurde nicht gefunden
 common#:#user_not_found_to_delete#:#Ein Benutzer, der gelöscht werden sollte, konnte nicht gefunden werden.
 common#:#user_not_known#:#Bitte geben Sie einen gültigen Benutzernamen ein.
 common#:#user_profile_other#:#Weitere Informationen
-common#:#user_send_new_account_mail#:#Sende
+common#:#user_send_new_account_mail#:#Begrüssungsmail versenden
 common#:#user_status#:#Benutzerstatus
 common#:#user_toggle_noti#:#Mitglied darf Benachrichtigung nicht deaktivieren
 common#:#userdata#:#Benutzerdaten
@@ -5864,6 +5871,7 @@ common#:#usrimport_no_insert_ext_account_exists#:#Import nicht möglich. Externe
 common#:#usrimport_no_update_ext_account_exists#:#Update nicht möglich. Externes Benutzerkonto existiert bereits.
 common#:#usrimport_with_specified_role_not_permitted#:#Sie haben keine Berechtigung zum Importieren von Benutzern mit der angegebenen Rolle.
 common#:#usrimport_wrong_file_count#:#Zu viele Dateien im Import-Ordner. Bitte versuchen Sie es erneut.
+common#:#usrimport_xml_anonymous_or_root_not_allowed#:#Weder das Systemkonto noch das anonyme Konto können mit dem Import geändert werden.
 common#:#usrimport_xml_attribute_missing#:#Attribut "%2$s" fehlt in Element "%1$s".
 common#:#usrimport_xml_attribute_value_illegal#:#Wert "%3$s" des Attributs "%2$s" in Element "%1$s" ist ungültig.
 common#:#usrimport_xml_attribute_value_inapplicable#:#Wert "%3$s" des Attributs "%2$s" in Element "%1$s" ist nicht anwendbar bei Aktion "%4$s".
@@ -6142,7 +6150,7 @@ content#:#cont_auto_glossaries#:#Automatisch verlinkte Glossare
 content#:#cont_auto_last_visited#:#Mit zuletzt besuchtem Abschnitt fortfahren
 content#:#cont_auto_last_visited_info#:#Dem Benutzer wird beim erneuten Aufrufen des SCORM-Lernmoduls das zuletzt besuchte SCO oder Asset angezeigt.
 content#:#cont_auto_suspend#:#Abruf vorhandener Lernstandsdaten sicherstellen
-content#:#cont_auto_suspend_info#:#Diese Option ist für SCORM-Lernmodule, die SCORM 2004 in unzureichender Weise unterstützen, indem sie keine geeigneten Werte für cmi.exit senden.
+content#:#cont_auto_suspend_info#:#Diese Option ist für SCORM-Lernmodule, die SCORM in unzureichender Weise unterstützen, indem sie keine geeigneten Werte für cmi.exit senden.
 content#:#cont_auto_time#:#Wartezeit Animation
 content#:#cont_autoindent#:#Automatische Einrückung
 content#:#cont_automatically_set_store_tries#:#Die Option "$1" wurde automatisch aktiviert, da der Modus "$2" aktiviert wurde.
@@ -6481,6 +6489,8 @@ content#:#cont_grid_width_s#:#Klein (Small)
 content#:#cont_grid_width_s_info#:#z.B. Smartphone
 content#:#cont_grid_width_xl#:#Sehr groß (Extra Large)
 content#:#cont_grid_width_xl_info#:#z.B. Wide Desktop
+content#:#cont_hacc_needs_height#:#Bitte geben Sie für horizontale Akkordeons eine Höhe an.
+content#:#cont_hacc_needs_width#:#Bitte geben Sie für horizontale Akkordeons eine Breite an.
 content#:#cont_header#:#Kopfzeile
 content#:#cont_height#:#Höhe in Pixel
 content#:#cont_help_no_valid_tooltip_id#:#Die eingegebene Tooltip-ID ist nicht gültig.
@@ -6524,7 +6534,7 @@ content#:#cont_insert_mob#:#Medienobjekt
 content#:#cont_insert_my_courses#:#Meine Kurse einfügen
 content#:#cont_insert_page#:#Seite einfügen
 content#:#cont_insert_page_from_clip#:#Seite aus Zwischenablage einfügen
-content#:#cont_insert_pagelayout#:#Seitenvorlage einfügen
+content#:#cont_insert_pagelayout#:#Seite aus Vorlage einfügen
 content#:#cont_insert_par#:#Text einfügen
 content#:#cont_insert_profile#:#Persönliche Daten veröffentlichen
 content#:#cont_insert_resources#:#Materialienliste einfügen
@@ -7060,7 +7070,7 @@ content#:#cont_tree_fixed#:#Die Lernmodulstruktur wurde repariert.
 content#:#cont_tries#:#Antwortversuche
 content#:#cont_tries_remaining#:#Verbleibende Versuche
 content#:#cont_tries_reset_on_visit#:#Zurücksetzen bei Aufruf der Seite
-content#:#cont_tries_reset_on_visit_info#:#Benutzer haben bei jedem Aufruf einer Seite mit einer Testfrage die maximale Anzahl an Antwortversuchen. Die Testfragen müssen jedesmal beantwortet werden.
+content#:#cont_tries_reset_on_visit_info#:#Bei jedem Aufruf einer Seite mit eingebetteter Testfrage ist die maximale Anzahl an Antwortversuchen möglich. Die Testfragen können jedes Mal erneut beantwortet werden.
 content#:#cont_tries_store#:#Speichere Antwortversuche
 content#:#cont_tries_store_info#:#Die Zahl der Antwortversuche wird festgehalten und gespeichert. Korrekt beantwortete Fragen müssen nicht mehr beantwortet werden. Benutzer können Fragen nach Erreichen der maximalen Versuche nicht erneut beantworten.
 content#:#cont_trigger_area#:#Bereich für Auslöser
@@ -7394,12 +7404,12 @@ crs#:#crs_groupings#:#Kursgruppierungen
 crs#:#crs_groups_nr#:#Anzahl Gruppen
 crs#:#crs_grp_added_grouping#:#Eine neue Mitgliedschaftsbeschränkung wurde angelegt.
 crs#:#crs_grp_already_assigned#:#Da Sie bereits Mitglied in einem der Kurse sind, können Sie nicht einem weiteren Kurs aus der Liste beitreten!
-crs#:#crs_grp_assign_crs#:#Kurs zuordnen
+crs#:#crs_grp_assign_crs#:#Ausgewählte Objekte der Mitgliedschaftsbeschränkung
 crs#:#crs_grp_assignments#:#Zuordnung von Kursmitgliedern zu Gruppen
 crs#:#crs_grp_enter_title#:#Bitte geben Sie einen Titel ein.
 crs#:#crs_grp_info_reg#:#Die folgenden Kurse unterliegen einer Mitgliedschaftsbeschränkung. Sie können nur einem dieser Kurse beitreten:
 crs#:#crs_grp_matriculation_required#:#Zur Aufnahme in diese Kursgruppierung ist eine eindeutige Matrikelnummer notwendig. <br />Bitte tragen Sie diese in den Einstellungen des Persönlichen Profils ein.
-crs#:#crs_grp_no_courses_assigned#:#Keine zugeordneten Kurse.
+crs#:#crs_grp_no_courses_assigned#:#Keine
 crs#:#crs_grp_table_assigned_courses#:#Zugeordnete Kurse
 crs#:#crs_header_archives#:#Kursarchive
 crs#:#crs_header_delete_members#:#Sie möchten folgende Mitglieder aus dem Kurs austragen?
@@ -7558,11 +7568,13 @@ crs#:#crs_member#:#Mitglied
 crs#:#crs_member_administration#:#Teilnehmerverwaltung
 crs#:#crs_member_passed_status_changed#:#Update-Status
 crs#:#crs_members#:#Mitglieder
-crs#:#crs_members_deleted#:#Das/die Mitglied(er) wurde(n) aus dem Kurs ausgetragen
+crs#:#crs_members_deleted#:#Die ausgewählten Mitglieder sind aus dem Kurs ausgetragen worden.
 crs#:#crs_members_groups#:#Gruppenmitgliedschaften
 crs#:#crs_members_map#:#Karte Kursmitglieder
 crs#:#crs_members_print_title#:#Kursmitglieder
 crs#:#crs_min_one_admin#:#Diesem Kurs muss mindestens ein Administrator zugeordnet bleiben.
+crs#:#crs_my_courses_groups_enabled#:#Meine Kurse und Gruppen
+crs#:#crs_my_courses_groups_enabled_info#:#Wenn Sie diese Option aktivieren, wird die Option 'Meine Kurse und Gruppen' im Magazin angezeigt.
 crs#:#crs_new_status#:#Ihr Status:
 crs#:#crs_new_subscription#:#Beitritt zum Kurs "%s"
 crs#:#crs_new_subscription_body#:#%1$s ist dem Kurs %2$s beigetreten.
@@ -7961,6 +7973,8 @@ dash#:#dash_studyprogramme#:#Meine Studienprogramme
 dash#:#dash_tile#:#Kacheln
 dash#:#dash_view_courses_groups#:#Block ‘Meine Kurse und Gruppen’
 dash#:#dash_view_favourites#:#Block ‘Favoriten’
+dash#:#favourites_disabled_info#:#Das Setzen von Favoriten ist deaktiviert. Sie können dieses in den Magazin-Einstellungen ändern.
+dash#:#memberships_disabled_info#:#Das Setzen von Mitgliedschaften ist deaktiviert. Sie können dieses in den Kurs-Einstellungen ändern.
 dateplaner#:#Fr_long#:#Freitag
 dateplaner#:#Fr_short#:#Fr
 dateplaner#:#Mo_long#:#Montag
@@ -8231,6 +8245,7 @@ dateplaner#:#cal_on_the#:#Am:
 dateplaner#:#cal_open_calendar#:#Kalender öffnen
 dateplaner#:#cal_origin#:#Herkunft
 dateplaner#:#cal_owner#:#Eigentümer
+dateplaner#:#cal_period#:#Zeitraum
 dateplaner#:#cal_rec_err_limit#:#Bitte geben Sie eine Anzahl von Terminen ein.
 dateplaner#:#cal_recurrence_confirm_deletion#:#Bitte wählen Sie aus, ob Sie einzelne Termine oder aber die gesamte Terminserie löschen möchten.
 dateplaner#:#cal_recurrences#:#Wiederholungen
@@ -8278,7 +8293,7 @@ dateplaner#:#cal_show_weeks_info#:#Zeigt die Wochen im Seitenblock "Kalender" an
 dateplaner#:#cal_start#:#Anfang
 dateplaner#:#cal_subscription#:#Abonnieren
 dateplaner#:#cal_subscription_header#:#Kalender-Adresse
-dateplaner#:#cal_subscription_info#:#Verwenden Sie die folgende Adresse, um mittels anderer Anwendungen auf Ihren Kalender zuzugreifen. Sie können diese Adresse kopieren und in jeden Kalender einfügen, der das iCal-Format unterstützt.
+dateplaner#:#cal_subscription_info#:#Verwenden Sie eine der folgenden Adressen, um mittels anderer Anwendungen auf Ihren Kalender zuzugreifen. Sie können diese Adresse kopieren und in jeden Kalender einfügen, der das iCal-Format unterstützt. Der Google-Kalender unterstützt keine iCal Dateien die größer als 1MB sind. Deshalb werden beim Export mit der iCal-URL für Google-Kalender alle Kalendertermine verworfen die älter als 30 Tage sind.
 dateplaner#:#cal_subscription_url#:#Kalender URL:
 dateplaner#:#cal_sync_cache#:#Termin-Cache
 dateplaner#:#cal_sync_cache_info#:#Wenn aktiviert, werden Kalendertermine zur Synchronisation mit externen Kalendern nur alle x-Minuten aktualisiert.
@@ -8579,9 +8594,9 @@ dcl#:#dcl_save_record#:#Eintrag speichern
 dcl#:#dcl_select#:#Auswahl der Tabelle
 dcl#:#dcl_selection_options#:#Optionen
 dcl#:#dcl_selection_type#:#Typ
-dcl#:#dcl_selection_type_combobox#:#Combobox (Dropdown)
+dcl#:#dcl_selection_type_combobox#:#Einfachauswahl (Dropdown)
 dcl#:#dcl_selection_type_multi#:#Mehrfachauswahl
-dcl#:#dcl_selection_type_single#:#Einfachauswahl
+dcl#:#dcl_selection_type_single#:#Einfachauswahl (Liste)
 dcl#:#dcl_simulate_import#:#Import simulieren
 dcl#:#dcl_simulate_info#:#Hierbei werden keine Datensätze angelegt, sondern nur Feedback zu Fehlern in der Import-Datei gegeben. Dadurch können Sie fehlerhafte Imports vermeiden.
 dcl#:#dcl_skipped_delete_records#:#%s Datensätze wurden aufgrund der Rechteeinstellungen nicht gelöscht
@@ -9837,7 +9852,7 @@ grp#:#grp_mem_contacts#:#Tutorielle Betreuung
 grp#:#grp_mem_tbl_header#:#Gruppenteilnehmer
 grp#:#grp_member_administration#:#Teilnehmerverwaltung
 grp#:#grp_members#:#Mitglieder
-grp#:#grp_members_deleted#:#Das/die Mitglied(er) wurde(n) aus der Gruppe ausgetragen
+grp#:#grp_members_deleted#:#Die ausgewählten Mitglieder sind aus der Gruppe ausgetragen worden.
 grp#:#grp_members_map#:#Karte Gruppenmitglieder
 grp#:#grp_members_print_title#:#Gruppenmitglieder
 grp#:#grp_missing_grp_type#:#Bitte wählen Sie die Art der Gruppe aus.
@@ -10342,7 +10357,7 @@ lso#:#lso_mainbar_button_label_curriculum#:#Curriculum
 lso#:#lso_mainbar_button_label_toc#:#Inhalte
 lso#:#lso_mem_tbl_header#:#Lernsequenz Teilnehmer
 lso#:#lso_member_administration#:#Teilnehmerverwaltung
-lso#:#lso_members_deleted#:#Das/die Mitglied(er) wurde(n) aus der Lernsequenz ausgetragen
+lso#:#lso_members_deleted#:#Die ausgewählten Mitglieder sind aus der Lernsequenz ausgetragen worden.
 lso#:#lso_members_gallery#:#Mitgliedergalerie
 lso#:#lso_members_print_title#:#Lernsequenzmitglieder
 lso#:#lso_min_one_admin#:#Dieser Lernsequenz muß mindestens ein Administrator zugeordnet bleiben.
@@ -10555,6 +10570,7 @@ lti#:#lti_object_consumer#:#LTI-Konsumenten
 lti#:#lti_object_release_settings_form#:#LTI-Freigaben bearbeiten
 lti#:#lti_provider#:#LTI-Freigaben
 lti#:#lti_provider_not_avail_msg#:#LTI Provider ist auf 'Nicht verfügbar' gesetzt.
+lti#:#lti_provider_not_set_msg#:#LTI-Provider ist unvollständig konfiguriert.
 lti#:#lti_providing_tab#:#ILIAS als LTI-Provider
 lti#:#lti_released_objects#:#Objekt-Freigaben
 lti#:#lti_select_provider#:#Provider auswählen
@@ -10630,7 +10646,7 @@ mail#:#link_check_affected_links#:#Betroffene Links
 mail#:#link_check_introduction#:#die folgenden Externen Links sind ungültig:
 mail#:#link_check_perma_link#:#Permanent Link
 mail#:#link_check_reason#:#Sie erhalten diese Benachrichtigung, da Sie die Benachrichtigung über ungültige Externe Links aktiviert haben.
-mail#:#mail_account_mail#:#Benutzerkonten-Mail
+mail#:#mail_account_mail#:#Über neues Konto informieren
 mail#:#mail_add_folder#:#Neuen Ordner erstellen
 mail#:#mail_add_recipient#:#Bitte geben Sie einen Empfänger ein
 mail#:#mail_add_subfolder#:#Unterordner hinzufügen
@@ -12108,8 +12124,8 @@ orgu#:#org_unit_not_found#:#Die Organisationseinheit wurde nicht gefunden.
 orgu#:#orgu_add#:#Organisationseinheit hinzufügen
 orgu#:#orgu_adv_settings#:#Erweiterte Einstellungen
 orgu#:#orgu_already_deleted#:#Das Objekt wurde bereits gelöscht.
-orgu#:#orgu_enable_my_staff#:#‘Ansicht Mitarbeiter’ aktivieren
-orgu#:#orgu_enable_my_staff_info#:#Die Ansicht ‘Meine Mitarbeiter’ zeigt die Lernfortschritte der eigenen Mitarbeiter an.
+orgu#:#orgu_enable_my_staff#:#Hauptmenüeintrag aktivieren
+orgu#:#orgu_enable_my_staff_info#:#Ein neuer Haupteintrag wird im Hauptmenü angezeigt. Er kann die Einträge Mitarbeiterliste, Einschreibungen, Zertifikate, Kompetenzen, Gespräche enthalten.
 orgu#:#orgu_global_set_form#:#Globale Einstellungen
 orgu#:#orgu_global_set_positions#:#Anzeige von Benutzerdaten nach Positionen in Organisationseinheiten
 orgu#:#orgu_global_set_positions_type_active#:#Positionen in:
@@ -13020,7 +13036,7 @@ rbac#:#coms_read#:#Lesezugriff auf Administration für Kommentare
 rbac#:#coms_visible#:#Administration für Kommentare ist sichtbar.
 rbac#:#coms_write#:#Einstellungen in Administration für Kommentare ändern
 rbac#:#condition_failed#:#Nicht bestanden
-rbac#:#condition_learning_progress#:#Status aus Lernfortschritt ableiten
+rbac#:#condition_learning_progress#:#gemäß Lernfortschritt
 rbac#:#contribute#:#Beiträge erstellen
 rbac#:#copa_copy#:#Inhaltsseite kopieren
 rbac#:#copa_delete#:#Inhaltsseite löschen
@@ -13050,7 +13066,9 @@ rbac#:#crs_visible#:#Kurs ist sichtbar
 rbac#:#crs_write#:#Kurs bearbeiten
 rbac#:#crsr_copy#:#Kurslinks kopieren
 rbac#:#crsr_delete#:#Kurslinks verschieben oder löschen
+rbac#:#crsr_edit_learning_progress#:#Benutzer kann Lernfortschrittseinstellungen bearbeiten
 rbac#:#crsr_edit_permission#:#Rechteeinstellungen ändern
+rbac#:#crsr_read_learning_progress#:#Benutzer kann Lernfortschritt anderer Benutzer einsehen
 rbac#:#crsr_visible#:#Kurslinks sind sichtbar und können genutzt werden
 rbac#:#crsr_write#:#Einstellungen der Kurslinks bearbeiten
 rbac#:#crss_edit_permission#:#Rechteeinstellungen für die Kurs-Administration ändern
@@ -13210,8 +13228,6 @@ rbac#:#iass_read_learning_progress#:#Lernfortschritt in Individuellen Bewertung 
 rbac#:#iass_visible#:#Individuelle Bewertung ist sichtbar
 rbac#:#iass_write#:#Einstellungen der Individuelle Bewertung bearbeiten
 rbac#:#il_lti_global_role#:#LTI User
-rbac#:#il_orgu_employee#:#Organisationseinheit Mitarbeiter
-rbac#:#il_orgu_superior#:#Organisationseinheit Vorgesetzter
 rbac#:#il_sess_participant#:#Sitzungsteilnehmer
 rbac#:#il_sess_status_closed#:#Nicht-Teilnehmer geschlossene Sitzung
 rbac#:#ilias_id#:#ILIAS-ID
@@ -13342,8 +13358,10 @@ rbac#:#orgu_cat_administrate_users#:#Lokale Benutzerkonten können angelegt und 
 rbac#:#orgu_copy#:#Organisationseinheit kopieren
 rbac#:#orgu_delete#:#Organisationseinheit löschen oder verschieben
 rbac#:#orgu_edit_permission#:#Rechteeinstellungen ändern
+rbac#:#orgu_employee#:#Organisationseinheit Mitarbeiter
 rbac#:#orgu_read#:#Lesezugriff auf Organisationseinheit
 rbac#:#orgu_read_users#:#Lokale Benutzerkonten dieser Organisationseinheit können eingesehen werden
+rbac#:#orgu_superior#:#Organisationseinheit Vorgesetzter
 rbac#:#orgu_view_learning_progress#:#Lernfortschritt einsehen
 rbac#:#orgu_view_learning_progress_rec#:#Lernfortschritt rekursiv einsehen
 rbac#:#orgu_visible#:#Organisationseinheit ist sichtbar.
@@ -14569,6 +14587,7 @@ skmg#:#skmg_confirm_user_removal#:#Wollen Sie wirklich die folgenden Benutzer au
 skmg#:#skmg_cont_profiles_info#:#In dieser Ansicht können Sie die Kompetenzprofile mit Kompetenzeinträgen auswählen, die im Zusammenhang mit dem derzeit geöffneten Objekt (Kurs/Gruppe) stehen. Um zu der globalen Ansicht mit allen Ihnen zugewiesenen Kompetenzprofilen und sämtlichen Kompetenzeinträgen zu gelangen, klicken Sie auf den unten stehenden Link.
 skmg#:#skmg_context_global#:#Global
 skmg#:#skmg_context_local#:#Lokal
+skmg#:#skmg_count_references#:#Anzahl referenzierter Kompetenzen:
 skmg#:#skmg_create_sctp#:#Vorlagenkategorie erstellen
 skmg#:#skmg_create_skill_category#:#Kategorie erstellen
 skmg#:#skmg_create_skill_template#:#Vorlage erstellen
@@ -15409,7 +15428,7 @@ survey#:#not_sent_only#:#Nur an neue Empfänger versenden (die bislang noch kein
 survey#:#not_used#:#noch nicht verwendet
 survey#:#nr_max_answers#:#Maximum
 survey#:#nr_min_answers#:#Minimum
-survey#:#obligatory#:#verpflichtend
+survey#:#obligatory#:#Verpflichtend
 survey#:#off#:#Aus
 survey#:#offline#:#offline (nicht aktiviert)
 survey#:#on#:#An
@@ -15463,7 +15482,7 @@ survey#:#reset_filter#:#Filter zurücksetzen
 survey#:#results#:#Ergebnisse
 survey#:#resume_survey#:#Umfrage fortsetzen
 survey#:#row_text#:#Zeile
-survey#:#save_obligatory_state#:#verpflichtend-Status und Sortierung speichern
+survey#:#save_obligatory_state#:#„Verpflichtend“-Status und Sortierung speichern
 survey#:#save_phrase#:#Als Phrase speichern
 survey#:#save_phrase_introduction#:#Wenn Sie die unten aufgeführten Antworten für sich als Standard-Phrase speichern wollen, geben Sie bitte noch einen Titel für die Phrase ein. Sie können auf diese Phrase jederzeit zugreifen, wenn Sie Phrasen zu einer ordinalen Frage hinzufügen.
 survey#:#save_reuse_message#:#Nachrichteninhalt für weitere Verwendung speichern
@@ -15498,7 +15517,7 @@ survey#:#spl_online_property#:#Online
 survey#:#spl_online_property_description#:#Wenn der Fragenpool nicht online ist, kann er nicht in Umfragen verwendet werden.
 survey#:#spl_paste_no_objects#:#Es sind keine Fragen in der Zwischenablage vorhanden. Bitte nutzen Sie hierfür die Kopieren- oder Verschieben-Schaltflächen.
 survey#:#spl_paste_success#:#Fragen eingefügt
-survey#:#spl_save_obligatory_state#:#verpflichtend-Status speichern
+survey#:#spl_save_obligatory_state#:#„Verpflichtend“-Status speichern
 survey#:#start_date#:#Startdatum
 survey#:#start_date_not_reached#:#Sie können die Umfrage erst starten, wenn das Startdatum erreicht ist!
 survey#:#start_survey#:#Umfrage beginnen
@@ -16284,15 +16303,17 @@ user#:#clipboard_remove_btn#:#Aus Zwischenablage entfernen
 user#:#clipboard_table_title#:#Zwischenablage (Benutzerkonten)
 user#:#clipboard_user_added#:#Die ausgewählten Benutzer wurden der Zwischenablage hinzugefügt.
 user#:#confirm_delete_starting_point#:#Sind Sie sich sicher, dass diese Regel gelöscht werden soll?
+user#:#confirm_logout_for_email_change#:#Sie haben Ihre E-Mail-Adresse geändert. Um diese Änderung abzuschliessen, ist die Eingabe Ihres Passworts notwendig. Sie werden daher abgemeldet und haben daraufhin 5 Minuten Zeit, sich wieder anzumelden, um die Änderungen abzuschliessen. Alle anderen Änderungen werden gespeichert, bevor Sie abgemeldet werden.
 user#:#create_starting_point#:#Regel erstellen
 user#:#criteria#:#Kriterium
-user#:#del_mail_body#:#Hallo %1$s, %2$sSie haben sich seit längerer Zeit nicht mehr auf der Lernplattform %3$s angemeldet. Ihr Benutzerkonto wird daher vorraussichtlich am %4$s gelöscht. Bitte melden Sie sich erneut an, damit Ihr Benutzerkonto erhalten bleibt.
-user#:#del_mail_subject#:#(ILIAS) – Ihr Benutzerkonto wird bald gelöscht
+user#:#del_mail_body#:#Hallo %1$s, %2$s Sie haben sich seit längerer Zeit nicht mehr auf %3$s angemeldet. Daher wird ihr ILIAS-Konto voraussichtlich am %4$s gelöscht. Um Ihr ILIAS-Konto zu behalten, müssen Sie sich vor dem genannten Tag erneut einloggen.
+user#:#del_mail_subject#:#Ihr ILIAS-Konto wird bald gelöscht
 user#:#delete_inactive_user_accounts_frequency#:#Intervall
 user#:#delete_inactive_user_accounts_frequency_desc#:#Intervall, mit welchem auf Löschung sowie auf E-Mail-Versand getestet wird.
 user#:#editing_this_role#:#Regel editieren
-user#:#enable_local_user_administration#:#Lokale Benutzerverwaltung aktivieren
-user#:#enable_local_user_administration_info#:#Wenn aktiviert, können Benutzerzugänge in Kategorien und Organisationseinheiten angelegt und verwaltet werden.
+user#:#email_could_not_be_changed#:#Ihre E-Mail-Adresse konnte nicht geändert werden.
+user#:#enable_local_user_administration#:#Lokale Konten
+user#:#enable_local_user_administration_info#:#In Kategorien und Organisationseinheiten erscheint ein Reiter „Lokale Konten”. Dort können lokale ILIAS-Konten angelegt, importiert und verwaltet werden. Damit können auch Personen ohne Zugriff auf die Administration neue ILIAS-Konten anlegen.
 user#:#feedhash#:#Newsfeed-Hash
 user#:#has_role#:#Rolle
 user#:#inform_user_mail_info#:#An die oben eingetragene E-Mail-Adresse wird eine Benachrichtigung gesendet. Deren Inhalt kann definiert werden in der Administration: „Konten und Rollen » ILIAS-Konten”, Reiter „Einstellungen : Benachrichtigung über Neuanmeldung”
@@ -16301,6 +16322,7 @@ user#:#interests_general#:#Allgemeine Interessen
 user#:#interests_help_looking#:#Suche Hilfe
 user#:#interests_help_offered#:#Biete Hilfe
 user#:#msg_spoint_not_modified#:#Die Startseite wurde nicht geändert.
+user#:#no_deactivate_yourself#:#Sie können Ihr eigenes Benutzerkonto nicht deaktivieren.
 user#:#obj_ref_id_not_exist#:#Die eingegebene Referenz-ID existiert nicht.
 user#:#restrict_user_access#:#Eingeschränkter Zugriff auf Benutzerkonten
 user#:#restrict_user_access_info#:#Aktivieren Sie diese Option nur, wenn Sie den Zugriff auf Benutzerkonten beschränken möchten. Wenn aktiviert, benötigen Benutzer das Recht "Lesezugriff auf Benutzerkonten", um auf lokale Benutzerkonten in Kategorien und auf die globalen Benutzerkonten zugreifen zu können.
@@ -16364,7 +16386,7 @@ user#:#user_limited_access#:#Zeitlich begrenzt
 user#:#user_lv_do_not_store#:#Keine Einträge speichern
 user#:#user_lv_keep_entries#:#Einträge speichern
 user#:#user_lv_keep_only_for_session#:#Einträge nach Sitzung löschen
-user#:#user_make_profile_public#:#Profil veröffentlichen
+user#:#user_make_profile_public#:#Veröffentlichung
 user#:#user_member_of_course_group#:#Mitglied in Kurs/Gruppe
 user#:#user_no_courses#:#Keinem Kurs zugeordnet
 user#:#user_no_groups#:#Keiner Gruppe zugeordnet
@@ -16381,7 +16403,7 @@ user#:#user_profile_info_std#:#Standard Infotext Benutzerprofil
 user#:#user_profile_info_text_info#:#Dieser Text erscheint über dem Eingabeformular der persönlichen Daten.
 user#:#user_profile_portfolio#:#Wenn Sie ein Portfolio als Ihr Profil nutzen möchten, setzen Sie im Portfolio-Bereich das Attribut "Mein Profil".
 user#:#user_profile_portfolio_selected#:#Sie benutzen momentan ein Portfolio als Ihr Profil. Die Aktivierung erfolgt dort über den Reiter "Freigabe".
-user#:#user_profile_preview#:#Vorschau
+user#:#user_profile_preview#:#Vorschau des Profils
 user#:#user_profile_prompt_text_info#:#Dieser Text ersetzt den "Standard Infotext Benutzerprofil", falls der Benutzer zur Veröffentlichung des Profils aufgefordert wird.
 user#:#user_prompt_incomplete#:#Nie
 user#:#user_prompt_incomplete_info#:#Der Benutzer wird niemals zur Veröffentlichung seines Profils aufgefordert.

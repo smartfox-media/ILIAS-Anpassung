@@ -3493,6 +3493,12 @@ $ilDB->addIndex("cal_entries", $in_fields, "i1", false);
 $in_fields = array("context_id");
 $ilDB->addIndex("cal_entries", $in_fields, "i2", false);
 
+$in_fields = array("starta");
+$ilDB->addIndex("cal_entries", $in_fields, "i3", false);
+
+$in_fields = array("enda");
+$ilDB->addIndex("cal_entries", $in_fields, "i4", false);
+
 $ilDB->createSequence("cal_entries", 1);
 
 
@@ -11314,6 +11320,9 @@ $ilDB->createTable("event_appointment", $fields);
 
 $pk_fields = array("appointment_id");
 $ilDB->addPrimaryKey("event_appointment", $pk_fields);
+
+$in_fields = array("event_id");
+$ilDB->addIndex("event_appointment", $in_fields, "i1", false);
 
 $ilDB->createSequence("event_appointment", 1);
 
@@ -35062,6 +35071,12 @@ $ilDB->addPrimaryKey("rbac_fa", $pk_fields);
 $in_fields = array("parent");
 $ilDB->addIndex("rbac_fa", $in_fields, "i1", false);
 
+$in_fields = array("assign","rol_id");
+$ilDB->addIndex("rbac_fa", $in_fields, "i2", false);
+
+$in_fields = array("assign","parent");
+$ilDB->addIndex("rbac_fa", $in_fields, "i3", false);
+
 $ilDB->insert("rbac_fa", array(
 'rol_id' => array('integer', '2'), 'parent' => array('integer', '8'), 'assign' => array('text', 'y'), 'protected' => array('text', 'y'), 'blocked' => array('integer', '0')));
 
@@ -35301,9 +35316,6 @@ $ilDB->insert("rbac_operations", array(
 
 $ilDB->insert("rbac_operations", array(
 'ops_id' => array('integer', '22'), 'operation' => array('text', 'create_glo'), 'description' => array('text', 'create new glossary'), 'class' => array('text', 'create'), 'op_order' => array('integer', '9999')));
-
-$ilDB->insert("rbac_operations", array(
-'ops_id' => array('integer', '23'), 'operation' => array('text', 'create_dbk'), 'description' => array('text', 'create new digibook'), 'class' => array('text', 'create'), 'op_order' => array('integer', '9999')));
 
 $ilDB->insert("rbac_operations", array(
 'ops_id' => array('integer', '24'), 'operation' => array('text', 'create_exc'), 'description' => array('text', 'create new exercise'), 'class' => array('text', 'create'), 'op_order' => array('integer', '9999')));
@@ -47334,7 +47346,7 @@ $ilDB->insert("settings", array(
 'module' => array('text', 'common'), 'keyword' => array('text', 'db_hotfixes_5_3'), 'value' => array('clob', '18')));
 
 $ilDB->insert("settings", array(
-'module' => array('text', 'common'), 'keyword' => array('text', 'db_hotfixes_7'), 'value' => array('clob', '95')));
+'module' => array('text', 'common'), 'keyword' => array('text', 'db_hotfixes_7'), 'value' => array('clob', '106')));
 
 $ilDB->insert("settings", array(
 'module' => array('text', 'common'), 'keyword' => array('text', 'db_update_running'), 'value' => array('clob', '0')));
@@ -50098,6 +50110,9 @@ $ilDB->createTable("style_usage", $fields);
 
 $pk_fields = array("obj_id");
 $ilDB->addPrimaryKey("style_usage", $pk_fields);
+
+$in_fields = array("style_id");
+$ilDB->addIndex("style_usage", $in_fields, "i1", false);
 
 
 //
@@ -53573,9 +53588,6 @@ $ilDB->createTable("tree", $fields);
 $pk_fields = array("child");
 $ilDB->addPrimaryKey("tree", $pk_fields);
 
-$in_fields = array("child");
-$ilDB->addIndex("tree", $in_fields, "i1", false);
-
 $in_fields = array("parent");
 $ilDB->addIndex("tree", $in_fields, "i2", false);
 
@@ -56485,6 +56497,32 @@ $ilDB->createSequence("usr_account_codes", 1);
 
 
 //
+// usr_change_email_token
+//
+$fields = array (
+	"token" => array (
+		"notnull" => false
+		,"length" => 32
+		,"fixed" => false
+		,"type" => "text"
+	)
+	,"new_email" => array (
+		"notnull" => false
+		,"length" => 256
+		,"fixed" => false
+		,"type" => "text"
+	)
+	,"valid_until" => array (
+		"notnull" => false
+		,"length" => 8
+		,"unsigned" => false
+		,"type" => "integer"
+	)
+);
+$ilDB->createTable("usr_change_email_token", $fields);
+
+
+//
 // usr_cron_mail_reminder
 //
 $fields = array (
@@ -57351,7 +57389,7 @@ $ilDB->addPrimaryKey("usr_search", $pk_fields);
 $fields = array (
 	"session_id" => array (
 		"notnull" => true
-		,"length" => 80
+		,"length" => 256
 		,"default" => ""
 		,"fixed" => false
 		,"type" => "text"
@@ -57389,7 +57427,7 @@ $ilDB->addPrimaryKey("usr_sess_istorage", $pk_fields);
 $fields = array (
 	"session_id" => array (
 		"notnull" => true
-		,"length" => 250
+		,"length" => 256
 		,"default" => " "
 		,"fixed" => false
 		,"type" => "text"
@@ -57608,7 +57646,7 @@ $ilDB->addIndex("usr_session_stats", $in_fields, "i1", false);
 $fields = array (
 	"session_id" => array (
 		"notnull" => true
-		,"length" => 80
+		,"length" => 256
 		,"default" => ""
 		,"fixed" => false
 		,"type" => "text"
@@ -58186,6 +58224,9 @@ $ilDB->addPrimaryKey("webr_items", $pk_fields);
 
 $in_fields = array("link_id","webr_id");
 $ilDB->addIndex("webr_items", $in_fields, "i1", false);
+
+$in_fields = array("webr_id");
+$ilDB->addIndex("webr_items", $in_fields, "i3", false);
 
 $ilDB->createSequence("webr_items", 1);
 

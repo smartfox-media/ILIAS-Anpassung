@@ -72,19 +72,36 @@ class assOrderingQuestionGUI extends assQuestionGUI implements ilGuiQuestionScor
 
         $this->object->setContentType($this->object::OQ_CT_PICTURES);
         $this->object->saveToDb();
-        $this->editQuestion();
+
+        $values = $this->request->getParsedBody();
+        $this->buildEditFormAfterTypeChange($values);
     }
 
     public function changeToText()
     {
-        if ($this->object->isImageOrderingType()) {
-            //perhaps clear something?
+        $ordering_element_list = $this->object->getOrderingElementList();
+        foreach ($ordering_element_list as $element) {
+            $this->object->dropImageFile($element->getContent());
         }
 
         $this->object->setContentType($this->object::OQ_CT_TERMS);
         $this->object->saveToDb();
 
-        $this->editQuestion();
+        $this->buildEditFormAfterTypeChange($this->request->getParsedBody());
+    }
+
+    private function buildEditFormAfterTypeChange(array $values) : void
+    {
+        $form = $this->buildEditForm();
+
+        $ordering_element_list = $this->object->getOrderingElementList();
+        $ordering_element_list->resetElements();
+
+        $values[assOrderingQuestion::ORDERING_ELEMENT_FORM_FIELD_POSTVAR] = [];
+        $form->setValuesByArray($values);
+        $form->getItemByPostVar(assOrderingQuestion::ORDERING_ELEMENT_FORM_FIELD_POSTVAR)->setElementList($ordering_element_list);
+        $this->renderEditForm($form);
+        $this->addEditSubtabs();
     }
 
     public function saveNesting()
@@ -152,6 +169,10 @@ class assOrderingQuestionGUI extends assQuestionGUI implements ilGuiQuestionScor
 
         $list = $this->object->getOrderingElementList()->withElements($elements);
         $this->object->setOrderingElementList($list);
+
+        $this->writeQuestionGenericPostData();
+        $this->writeQuestionSpecificPostData($form);
+
         $this->editQuestion();
     }
 
@@ -434,7 +455,7 @@ class assOrderingQuestionGUI extends assQuestionGUI implements ilGuiQuestionScor
         $template = new ilTemplate("tpl.il_as_qpl_nested_ordering_output_solution.html", true, true, "Modules/TestQuestionPool");
         $template->setVariable('SOLUTION_OUTPUT', $solution_html);
         if ($show_question_text == true) {
-            $template->setVariable("QUESTIONTEXT", $this->object->prepareTextareaOutput($this->object->getQuestion(), true));
+            $template->setVariable("QUESTIONTEXT", $this->object->getQuestionForHTMLOutput());
         }
         $questionoutput = $template->get();
 
@@ -495,22 +516,20 @@ class assOrderingQuestionGUI extends assQuestionGUI implements ilGuiQuestionScor
         $template->setVariable('NESTED_ORDERING', $answers->getHTML());
         $template->parseCurrentBlock();
 
-        $template->setVariable("QUESTIONTEXT", $this->object->prepareTextareaOutput($this->object->getQuestion(), true));
+        $template->setVariable("QUESTIONTEXT", $this->object->getQuestionForHTMLOutput());
 
         if ($show_question_only) {
             return $template->get();
         }
 
         return $this->getILIASPage($template->get());
-
-        //$this->tpl->addJavascript("./Modules/TestQuestionPool/templates/default/ordering.js");
     }
 
     public function getPresentationJavascripts()
     {
         global $DIC; /* @var ILIAS\DI\Container $DIC */
 
-        $files = array();
+        $files = [];
 
         if ($DIC['ilBrowser']->isMobile() || $DIC['ilBrowser']->isIpad()) {
             $files[] = './node_modules/@andxor/jquery-ui-touch-punch-fix/jquery.ui.touch-punch.js';
@@ -546,7 +565,7 @@ class assOrderingQuestionGUI extends assQuestionGUI implements ilGuiQuestionScor
         $template->setVariable('NESTED_ORDERING', $orderingGUI->getHTML());
         $template->parseCurrentBlock();
 
-        $template->setVariable('QUESTIONTEXT', $this->object->prepareTextareaOutput($this->object->getQuestion(), true));
+        $template->setVariable('QUESTIONTEXT', $this->object->getQuestionForHTMLOutput());
 
         $pageoutput = $this->outQuestionPage('', $isPostponed, $activeId, $template->get());
 

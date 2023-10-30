@@ -16,6 +16,7 @@ use Jumbojett\OpenIDConnectClient;
  */
 class ilAuthProviderOpenIdConnect extends ilAuthProvider implements ilAuthProviderInterface
 {
+    const OIDC_AUTH_IDTOKEN = "oidc_auth_idtoken";
     /**
      * @var ilOpenIdConnectSettings|null
      */
@@ -57,16 +58,21 @@ class ilAuthProviderOpenIdConnect extends ilAuthProvider implements ilAuthProvid
                 }
             }
         } else {
-            $auth_token = ilSession::get('oidc_auth_token');
-            $this->getLogger()->debug('Using token: ' . $auth_token);
+            $id_token = ilSession::get(self::OIDC_AUTH_IDTOKEN);
+            $this->getLogger()->debug('Logging out with token: ' . $id_token);
 
-            if (strlen($auth_token)) {
-                ilSession::set('oidc_auth_token', '');
+
+            if (is_string($id_token) && $id_token !== '') {
+                ilSession::set(self::OIDC_AUTH_IDTOKEN, '');
                 $oidc = $this->initClient();
+                try {
                 $oidc->signOut(
-                    $auth_token,
-                    ILIAS_HTTP_PATH . '/logout.php'
-                );
+                        $id_token,
+                        ILIAS_HTTP_PATH . '/logout.php'
+                    );
+                } catch (\Jumbojett\OpenIDConnectClientException $e) {
+                    $this->getLogger()->warning("Logging out of OIDC provider failed with: " . $e->getMessage());
+                }
             }
         }
     }
@@ -97,21 +103,12 @@ class ilAuthProviderOpenIdConnect extends ilAuthProvider implements ilAuthProvid
                 $oidc->getRedirectURL()
             );
 
-            $oidc->setResponseTypes(
-                [
-                    'id_token'
-                ]
-            );
-
-
             $oidc->addScope($this->settings->getAllScopes());
-            $oidc->addAuthParam(['response_mode' => 'form_post']);
             switch ($this->settings->getLoginPromptType()) {
                 case ilOpenIdConnectSettings::LOGIN_ENFORCE:
                     $oidc->addAuthParam(['prompt' => 'login']);
                     break;
             }
-            $oidc->setAllowImplicitFlow(true);
 
             $oidc->authenticate();
             // user is authenticated, otherwise redirected to authorization endpoint or exception
@@ -128,8 +125,8 @@ class ilAuthProviderOpenIdConnect extends ilAuthProvider implements ilAuthProvid
                 if ($this->settings->isLogoutAuth0Style()) {
                     ilSession::set('oidc_authenticated', true);
                 } else {
-                    $token = $oidc->requestClientCredentialsToken();
-                    ilSession::set('oidc_auth_token', $token->access_token);
+                    $token = $oidc->requestUserInfo();
+                    ilSession::set(self::OIDC_AUTH_IDTOKEN, $oidc->getIdToken());
                 }
             }
             return true;

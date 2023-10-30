@@ -890,6 +890,7 @@ assessment#:#log_user_not_entered_values#:#Użytkownik nie podał wartości
 assessment#:#log_user_solution_willingly_deleted#:#Użytkownik usunął swoją odpowiedź.
 assessment#:#log_wrong_test_password_entered#:#Uczestnik wprowadził nieprawidłowe hasło do testu.
 assessment#:#longmenu#:#Longmenu
+assessment#:#longmenu_answeroptions_differ#:#This question does not work correctly, as there are not the same amount of gaps in the text as in the correction options.###20 07 2023 new variable
 assessment#:#longmenu_text#:#Tekst ‘Long Menu’
 assessment#:#mailnottype#:#Transmisja odbywa się również po zakończeniu poszczególnych przebiegów testu.
 assessment#:#mailnottype_desc#:#Notify the owner of the test <strong>even if</strong> the number of test attempts has not been limited.###09 11 2022 new variable
@@ -932,6 +933,7 @@ assessment#:#new_category#:#Nowa kategoria jednostek
 assessment#:#new_unit#:#Nowa jednostka
 assessment#:#next_question#:#Zachowaj i przejdź do następnego pytania
 assessment#:#next_question_rows#:#Pytania %d - %d z %d >>
+assessment#:#no_manual_feedback_export_info#:#Manual feedbacks will not be exported.###12 09 2023 new variable
 assessment#:#no_passed_mark#:#Musisz ustawić co najmniej jedno zaznaczenie aby przejść dalej! Schemat zaznaczeń nie został zapisany.
 assessment#:#no_question_selected_for_move#:#Wybierz co najmniej jedno pytanie do przesunięcia!
 assessment#:#no_questions_available#:#Brak dostępnych pytań!
@@ -1660,6 +1662,7 @@ assessment#:#tst_password_form#:#Wprowadzenie hasła testu
 assessment#:#tst_password_introduction#:#Ten test jest zabezpieczony hasłem. Podaj hasło przed rozpoczęciem testu.
 assessment#:#tst_percent_solved#:#Procent rozwiązanych
 assessment#:#tst_player_answer_saved_and_locked#:#Answer is saved and locked and can no longer be changed###21 12 2022 new variable
+assessment#:#tst_please_select_source_pool#:#Please select a question pool.###12 09 2023 new variable
 assessment#:#tst_please_select_target_for_pool_derives#:#Wybierz docelowy kontener.
 assessment#:#tst_position#:#Pytanie %s z %s
 assessment#:#tst_position_without_total#:#Pytanie %s
@@ -2552,6 +2555,8 @@ book#:#book_reminder_day#:#Before Reservation
 book#:#book_reminder_day_info#:#Send list of own reservations to users and full list of reservations to admins.
 book#:#book_reminder_days#:#Day(s)
 book#:#book_reminder_setting#:#Reminder
+book#:#book_rerun_assignments#:#Run Assignment Process###05 05 2023 new variable
+book#:#book_rerun_confirmation#:#Attention. The assignments via preference process has already run. You may restart the process, if any errors have occured, e.g. no assignments have been saved. To prevent multiple assignments delete all reservations before restarting the process.###05 05 2023 new variable
 book#:#book_reservation_available#:#%s dostępne
 book#:#book_reservation_confirmed#:#Udało się dokonać rejestracji.
 book#:#book_reservation_failed#:#Nie udało się dokonać rejestracji.
@@ -5569,6 +5574,7 @@ common#:#short_inst_name#:#Krótki tytuł
 common#:#short_inst_name_info#:#Ten tytuł będzie widniał w pasku tytułu przeglądarki. Jeśli nie wprowadzisz wartości, to będzie użyte 'ILIAS'.
 common#:#show#:#Pokaż
 common#:#show_all_details#:#Pokaż wszystkie szczegóły
+common#:#show_content#:#Show Content###05 05 2023 new variable
 common#:#show_details#:#Pokaż szczegóły
 common#:#show_filter#:#Zastosuj filtr
 common#:#show_hidden_sections#:#Pokaż dodatkowe informacje &raquo;
@@ -5592,8 +5598,10 @@ common#:#soap_user_administration_desc#:#Jeśli wybrane, to wszystkie konta mog�
 common#:#soap_wsdl_path#:#Ścieżka WSDL
 common#:#soap_wsdl_path_info#:#Tutaj możesz podać ścieżkę do pliku WSDL, którą ILIAS ma użyć dla usług sieciowych. Jeśli to pole pozostanie puste, jako domyślna zostanie wykorzystana poniższa ścieżka:%s
 common#:#sort_ascending#:#Sort Ascending###30 04 2021 new variable
+common#:#sort_ascending_long#:#Change Sort Direction to Ascending###31 05 2023 new variable
 common#:#sort_by_this_column#:#Sortuj wg tej kolumny
 common#:#sort_descending#:#Sort Descending###30 04 2021 new variable
+common#:#sort_descending_long#:#Change Sort Direction to Descending###31 05 2023 new variable
 common#:#sort_inherit_prefix#:#Domyślnie
 common#:#sorting_asc#:#Rosnąco
 common#:#sorting_creation_header#:#Wg daty utworzenia
@@ -5719,7 +5727,6 @@ common#:#udf_delete_sure#:#Czy na pewno chcesz usunąć pole i wszystkie przydzi
 common#:#udf_duplicate_entries#:#Wartość powinna być unikalna.
 common#:#udf_field_deleted#:#Pole usunięte.
 common#:#udf_name_already_exists#:#Ta nazwa pola już istnieje. Wybierz inną nazwę.
-common#:#udf_required_and_visible_requires_changeable#:#When a field is ‘Required’ and ‘Visible in Personal Data’, it must also be ‘Changeable in Profile’###01 02 2023 new variable
 common#:#udf_required_requires_visib_reg#:#Ustawienie "Pole niezbędne" wymaga ustawienia "Widoczne w formularzu rejestracyjnym"
 common#:#udf_type_date#:#Data
 common#:#udf_type_datetime#:#Data i godzina
@@ -5846,6 +5853,7 @@ common#:#usrimport_no_insert_ext_account_exists#:#Nie można wykonać operacji "
 common#:#usrimport_no_update_ext_account_exists#:#Nie można wykonać operacji "Aktualizuj". Zewnętrzne konto już istnieje.
 common#:#usrimport_with_specified_role_not_permitted#:#Import w tej roli nie jest dozwolony.
 common#:#usrimport_wrong_file_count#:#Too many files in import-folder. Please try again.###30 04 2021 new variable
+common#:#usrimport_xml_anonymous_or_root_not_allowed#:#Neither the system-account nor the anonymous account can be changed through the import.###12 09 2023 new variable
 common#:#usrimport_xml_attribute_missing#:#Brak atrybutu "%2$s" w elemencie "%1$s".
 common#:#usrimport_xml_attribute_value_illegal#:#Wartość "%3$s" atrybutu "%2$s" w elemencie "%1$s" jest niedozwolona.
 common#:#usrimport_xml_attribute_value_inapplicable#:#Wartość "%3$s" atrybutu "%2$s" w elemencie "%1$s" jest nieodpowiednia dla akcji "%4$s".
@@ -6463,6 +6471,8 @@ content#:#cont_grid_width_s#:#Mały (small)
 content#:#cont_grid_width_s_info#:#np. smartfon
 content#:#cont_grid_width_xl#:#Bardzo duży (extra large)
 content#:#cont_grid_width_xl_info#:#np. pulpit typu wide
+content#:#cont_hacc_needs_height#:#Please set a content height for horizontal accordions.###05 05 2023 new variable
+content#:#cont_hacc_needs_width#:#Please set a content width for horizontal accordions.###05 05 2023 new variable
 content#:#cont_header#:#Nagłówek
 content#:#cont_height#:#Wysokość
 content#:#cont_help_no_valid_tooltip_id#:#Wprowadzony numer ID porady jest nieważny.
@@ -7545,6 +7555,8 @@ crs#:#crs_members_groups#:#Członkostwo w grupach
 crs#:#crs_members_map#:#Mapy członków kursu
 crs#:#crs_members_print_title#:#Uczestnicy kursu
 crs#:#crs_min_one_admin#:#Do tego kursu musi być przydzielony co najmniej jeden administrator.
+crs#:#crs_my_courses_groups_enabled#:#My Courses and Groups###20 07 2023 new variable
+crs#:#crs_my_courses_groups_enabled_info#:#If activated, the section 'My Courses and Groups' is visible.###20 07 2023 new variable
 crs#:#crs_new_status#:#Twój nowy status to:
 crs#:#crs_new_subscription#:#Nowa subskrypcja kursu "%s"
 crs#:#crs_new_subscription_body#:#%s został zarejestrowany do kursu "%s".
@@ -7943,6 +7955,8 @@ dash#:#dash_studyprogramme#:#My Study Programmes###07 02 2020 new variable
 dash#:#dash_tile#:#Tile###07 02 2020 new variable
 dash#:#dash_view_courses_groups#:#Section ‘My Courses and Groups’###07 02 2020 new variable
 dash#:#dash_view_favourites#:#Section ‘Favourites’###07 02 2020 new variable
+dash#:#favourites_disabled_info#:#Add to favorites is deactivated. You may change this inside the repository settings.###20 07 2023 new variable
+dash#:#memberships_disabled_info#:#Subscriptions are deactivated. You may change this inside the course settings.###20 07 2023 new variable
 dateplaner#:#Fr_long#:#Piątek
 dateplaner#:#Fr_short#:#Pt
 dateplaner#:#Mo_long#:#Poniedziałek
@@ -8213,6 +8227,7 @@ dateplaner#:#cal_on_the#:#W każdy:
 dateplaner#:#cal_open_calendar#:#Otwórz kalendarz
 dateplaner#:#cal_origin#:#Pochodzenie
 dateplaner#:#cal_owner#:#Właściciel
+dateplaner#:#cal_period#:#Period###21 06 2023 new variable
 dateplaner#:#cal_rec_err_limit#:#Podaj liczbę terminów.
 dateplaner#:#cal_recurrence_confirm_deletion#:#Please decide wether you want to delete single appointments or the complete series of appointments.###28 05 2021 new variable
 dateplaner#:#cal_recurrences#:#Powtarzalność
@@ -10537,6 +10552,7 @@ lti#:#lti_object_consumer#:#Odbiorcy LTI
 lti#:#lti_object_release_settings_form#:#Edytuj udostępnienia LTI
 lti#:#lti_provider#:#Udostępnienia LTI
 lti#:#lti_provider_not_avail_msg#:#LTI Provider is set to 'Not Available'###07 02 2020 new variable
+lti#:#lti_provider_not_set_msg#:#LTI Provider is configured incompletely.###05 05 2023 new variable
 lti#:#lti_providing_tab#:#ILIAS as LTI Provider###07 02 2020 new variable
 lti#:#lti_released_objects#:#Udostępnienia obiektów
 lti#:#lti_select_provider#:#Select Provider###07 02 2020 new variable
@@ -13032,7 +13048,9 @@ rbac#:#crs_visible#:#Kurs jest widoczny
 rbac#:#crs_write#:#Edycja kursu
 rbac#:#crsr_copy#:#Kopiuj odwołanie do kursu
 rbac#:#crsr_delete#:#Usuń odwołanie do kursu
+rbac#:#crsr_edit_learning_progress#:#User can edit learning progress settings###20 07 2023 new variable
 rbac#:#crsr_edit_permission#:#Zmień ustawienia uprawnień
+rbac#:#crsr_read_learning_progress#:#User can view learning progress of other users###20 07 2023 new variable
 rbac#:#crsr_visible#:#Odwołanie do kursu jest widoczne
 rbac#:#crsr_write#:#Edytuj odwołanie do kursu
 rbac#:#crss_edit_permission#:#Zmień prawa dostępu dla ustawień systemowych dotyczących kursu
@@ -13192,8 +13210,6 @@ rbac#:#iass_read_learning_progress#:#Obejrzyj postęp w nauce dla indywidualnych
 rbac#:#iass_visible#:#Indywidualna ocena jest widoczna
 rbac#:#iass_write#:#Edytuj ustawienia dotyczące indywidualnych ocen
 rbac#:#il_lti_global_role#:#LTI User###24 09 2021 new variable
-rbac#:#il_orgu_employee#:#Jednostka organizacyjna Pracownik
-rbac#:#il_orgu_superior#:#Jednostka organizacyjna Przełożony
 rbac#:#il_sess_participant#:#Uczestnicy sesji
 rbac#:#il_sess_status_closed#:#Sesja dostępna tylko dla członków
 rbac#:#ilias_id#:#ILIAS-ID
@@ -13324,8 +13340,10 @@ rbac#:#orgu_cat_administrate_users#:#Administracja kontami lokalnych użytkownik
 rbac#:#orgu_copy#:#Skopiuj jednostkę organizacyjną
 rbac#:#orgu_delete#:#Usuń lub przesuń jednostkę organizacyjną
 rbac#:#orgu_edit_permission#:#Zmień ustawienia uprawnień
+rbac#:#orgu_employee#:#Jednostka organizacyjna Pracownik
 rbac#:#orgu_read#:#Prawo czytania dotyczące jednostki organizacyjnej
 rbac#:#orgu_read_users#:#Istnieje możliwość obejrzenia lokalnych użytkowników tej jednostki organizacyjnej
+rbac#:#orgu_superior#:#Jednostka organizacyjna Przełożony
 rbac#:#orgu_view_learning_progress#:#Obejrzyj postęp w nauce
 rbac#:#orgu_view_learning_progress_rec#:#Wgląd w postęp w nauce w trybie powtarzającym się
 rbac#:#orgu_visible#:#Jednostka organizacyjna jest widoczna.
@@ -14551,6 +14569,7 @@ skmg#:#skmg_confirm_user_removal#:#Czy naprawdę chcesz usunąć z profilu poni�
 skmg#:#skmg_cont_profiles_info#:#In this view, you can select the competence profiles with competence entries, which are related to the currently open object (course/group). To get to the global view with all competence profiles you are assigned to and all competence entries, click on the link below.###31 08 2022 new variable
 skmg#:#skmg_context_global#:#Global###30 04 2021 new variable
 skmg#:#skmg_context_local#:#Local###30 04 2021 new variable
+skmg#:#skmg_count_references#:#Number of referenced competences:###23 10 2023 new variable
 skmg#:#skmg_create_sctp#:#Utwórz kategorię szablonu
 skmg#:#skmg_create_skill_category#:#Tworzenie kategorii kompetencji
 skmg#:#skmg_create_skill_template#:#Tworzenie szablonu kompetencji
@@ -16266,6 +16285,7 @@ user#:#clipboard_remove_btn#:#Usuń ze schowka
 user#:#clipboard_table_title#:#Schowek (konta użytkowników)
 user#:#clipboard_user_added#:#Wybrani użytkownicy zostali dodani do schowka.
 user#:#confirm_delete_starting_point#:#Jesteś pewien, że poniższa zasada ma zostać usunięta?
+user#:#confirm_logout_for_email_change#:#You changed your email. To finalize this change, you will need to provide your password. The system is thus going to log you out and you will have 5 minutes to log in again. All other changes will be saved before logging you out.###23 10 2023 new variable
 user#:#create_starting_point#:#Utwórz zasadę
 user#:#criteria#:#Kryterium
 user#:#del_mail_body#:#Cześć %1$s, %2$sod dłuższego czasu nie logowałeś się na platformie do nauki %3$s. W związku z tym Twoje konto użytkownika zostanie planowo usunięte w dniu %4$s. Aby zachować swoje konto, ponownie się zaloguj.
@@ -16273,6 +16293,7 @@ user#:#del_mail_subject#:#(ILIAS) – Twoje konto użytkownika wkrótce zostanie
 user#:#delete_inactive_user_accounts_frequency#:#Interwał
 user#:#delete_inactive_user_accounts_frequency_desc#:#Interwał, na podstawie którego przeprowadzany jest test usuwania i wysyłania wiadomości mailowych.
 user#:#editing_this_role#:#Edytuj zasadę
+user#:#email_could_not_be_changed#:#The request to change your email could not be finalized.###23 10 2023 new variable
 user#:#enable_local_user_administration#:#Aktywuj zarządzanie lokalnymi użytkownikami
 user#:#enable_local_user_administration_info#:#Jeśli ta opcja jest aktywna, wejścia użytkowników można przydzielać do kategorii i jednostek organizacyjnych i nimi zarządzać.
 user#:#feedhash#:#Feed-hash
@@ -16283,6 +16304,7 @@ user#:#interests_general#:#Ogólne zainteresowania
 user#:#interests_help_looking#:#Szukam pomocy
 user#:#interests_help_offered#:#Oferuję pomoc
 user#:#msg_spoint_not_modified#:#Starting point not modified###07 02 2020 new variable
+user#:#no_deactivate_yourself#:#You cannot deactivate your own user account.###20 07 2023 new variable
 user#:#obj_ref_id_not_exist#:#The entered Reference-Id does not exist###07 02 2020 new variable
 user#:#restrict_user_access#:#Ograniczony dostęp do kont użytkowników
 user#:#restrict_user_access_info#:#Aktywuj tę opcję tylko wtedy, gdy chcesz ograniczyć dostęp do kont użytkowników. Jeśli ta opcja jest aktywna, użytkownicy będą potrzebowali uprawnienia "Prawo czytania kont użytkowników", aby mieć dostęp do lokalnych kont użytkowników w kategoriach oraz globalnych kont użytkowników.

@@ -818,8 +818,9 @@ class ilTestRandomQuestionSetConfigGUI
     private function fetchMultiSourcePoolDefinitionIdsParameter()
     {
         if (!isset($_POST['src_pool_def_ids']) || !is_array($_POST['src_pool_def_ids'])) {
-            require_once 'Modules/Test/exceptions/class.ilTestMissingSourcePoolDefinitionParameterException.php';
-            throw new ilTestMissingSourcePoolDefinitionParameterException();
+            $this->tpl->setOnScreenMessage('failure', $this->lng->txt('tst_please_select_source_pool'), true);
+            $this->ctrl->redirect($this, self::CMD_SHOW_SRC_POOL_DEF_LIST);
+            return [];
         }
 
         $definitionIds = array();
@@ -912,6 +913,12 @@ class ilTestRandomQuestionSetConfigGUI
     {
         $poolIds = $this->fetchPoolIdsParameter();
         $targetRef = $this->fetchTargetRefParameter();
+
+        if (!$this->access->checkAccess('write', '', $targetRef)) {
+            $this->tpl->setOnScreenMessage('failure', $this->lng->txt("no_permission"), true);
+            $this->ctrl->setParameterByClass(ilObjTestGUI::class, 'ref_id', $this->testOBJ->getRefId());
+            $this->ctrl->redirectByClass(ilObjTestGUI::class);
+        }
 
         if (count($poolIds)) {
             require_once 'Modules/Test/classes/class.ilTestRandomQuestionSetPoolDeriver.php';

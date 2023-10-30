@@ -889,6 +889,7 @@ assessment#:#log_user_not_entered_values#:#User did not enter values用户没有
 assessment#:#log_user_solution_willingly_deleted#:#User deleted the answer.###10 11 2018 new variable
 assessment#:#log_wrong_test_password_entered#:#Participant entered wrong test password.###23 12 2015 new variable
 assessment#:#longmenu#:#Longmenu###10 11 2018 new variable
+assessment#:#longmenu_answeroptions_differ#:#This question does not work correctly, as there are not the same amount of gaps in the text as in the correction options.###20 07 2023 new variable
 assessment#:#longmenu_text#:#Long Menu Text###30 08 2015 new variable
 assessment#:#mailnottype#:#甚至当用户完成一个测试时也发送通知
 assessment#:#mailnottype_desc#:#Notify the owner of the test <strong>even if</strong> the number of test attempts has not been limited.###09 11 2022 new variable
@@ -931,6 +932,7 @@ assessment#:#new_category#:#New Unit Category###24 10 2013 new variable
 assessment#:#new_unit#:#New Unit###24 10 2013 new variable
 assessment#:#next_question#:#保存并跳转到下一题
 assessment#:#next_question_rows#:#Questions %d - %d of %d >>问题
+assessment#:#no_manual_feedback_export_info#:#Manual feedbacks will not be exported.###12 09 2023 new variable
 assessment#:#no_passed_mark#:#您至少要设置一个标记PASSED!这个标记模式没被保存.
 assessment#:#no_question_selected_for_move#:#要移除它请至少要检查一个题目!
 assessment#:#no_questions_available#:#无有效题目！
@@ -1659,6 +1661,7 @@ assessment#:#tst_password_form#:#Enter Test Password###26 09 2014 new variable
 assessment#:#tst_password_introduction#:#这个测试只能通过输入一个测试密码才能访问。请输入这个测试的密码开始测试。
 assessment#:#tst_percent_solved#:#已完成的百分比
 assessment#:#tst_player_answer_saved_and_locked#:#Answer is saved and locked and can no longer be changed###21 12 2022 new variable
+assessment#:#tst_please_select_source_pool#:#Please select a question pool.###12 09 2023 new variable
 assessment#:#tst_please_select_target_for_pool_derives#:#Please select a target conatainer.###25 10 2016 new variable
 assessment#:#tst_position#:#Question %s of %s问题的
 assessment#:#tst_position_without_total#:#Question %s###23 12 2015 new variable
@@ -2551,6 +2554,8 @@ book#:#book_reminder_day#:#Before Reservation###10 11 2018 new variable
 book#:#book_reminder_day_info#:#Send list of own reservations to users and full list of reservations to admins.###10 11 2018 new variable
 book#:#book_reminder_days#:#Day(s)###10 11 2018 new variable
 book#:#book_reminder_setting#:#Reminder###10 11 2018 new variable
+book#:#book_rerun_assignments#:#Run Assignment Process###05 05 2023 new variable
+book#:#book_rerun_confirmation#:#Attention. The assignments via preference process has already run. You may restart the process, if any errors have occured, e.g. no assignments have been saved. To prevent multiple assignments delete all reservations before restarting the process.###05 05 2023 new variable
 book#:#book_reservation_available#:#%s available###24 10 2013 new variable
 book#:#book_reservation_confirmed#:#您的预订已经被确认
 book#:#book_reservation_failed#:#您的预订已经失败
@@ -5568,6 +5573,7 @@ common#:#short_inst_name#:#短标题
 common#:#short_inst_name_info#:#这个标题将显示在浏览器的标题栏的前头。如果没有输入任何值，将使用“ILIAS”。
 common#:#show#:#显示
 common#:#show_all_details#:#Show all details###24 10 2013 new variable
+common#:#show_content#:#Show Content###05 05 2023 new variable
 common#:#show_details#:#显示详细情况
 common#:#show_filter#:#显示过滤器
 common#:#show_hidden_sections#:#Show More Information &raquo;###26 09 2014 new variable
@@ -5591,8 +5597,10 @@ common#:#soap_user_administration_desc#:#如果启用，所有用户账号都能
 common#:#soap_wsdl_path#:#WSDL路径
 common#:#soap_wsdl_path_info#:#请输入ilias的wsdl文件路径，它将使用在webservice中。如果您将这个字段留空，将使用以下路径做为默认值：%s
 common#:#sort_ascending#:#Sort Ascending###30 04 2021 new variable
+common#:#sort_ascending_long#:#Change Sort Direction to Ascending###31 05 2023 new variable
 common#:#sort_by_this_column#:#根据此列分类
 common#:#sort_descending#:#Sort Descending###30 04 2021 new variable
+common#:#sort_descending_long#:#Change Sort Direction to Descending###31 05 2023 new variable
 common#:#sort_inherit_prefix#:#默认
 common#:#sorting_asc#:#Ascending###26 09 2014 new variable
 common#:#sorting_creation_header#:#By Creation Date###26 09 2014 new variable
@@ -5718,7 +5726,6 @@ common#:#udf_delete_sure#:#您真的要删除这个字段，以及所有已分�
 common#:#udf_duplicate_entries#:#这个值必须是唯一的。
 common#:#udf_field_deleted#:#已删除字段。
 common#:#udf_name_already_exists#:#这个字段名称已经存在。请选择一个不同的名称
-common#:#udf_required_and_visible_requires_changeable#:#When a field is ‘Required’ and ‘Visible in Personal Data’, it must also be ‘Changeable in Profile’###01 02 2023 new variable
 common#:#udf_required_requires_visib_reg#:#当字段设置为“必填”时，它必需被设置为“注册中可见”。
 common#:#udf_type_date#:#日期字段
 common#:#udf_type_datetime#:#日期和时间
@@ -5845,6 +5852,7 @@ common#:#usrimport_no_insert_ext_account_exists#:#不能执行“插入”行为
 common#:#usrimport_no_update_ext_account_exists#:#不能执行“更新”行为。外部账号已经存在。
 common#:#usrimport_with_specified_role_not_permitted#:#不允许导入指定的角色
 common#:#usrimport_wrong_file_count#:#Too many files in import-folder. Please try again.###30 04 2021 new variable
+common#:#usrimport_xml_anonymous_or_root_not_allowed#:#Neither the system-account nor the anonymous account can be changed through the import.###12 09 2023 new variable
 common#:#usrimport_xml_attribute_missing#:#元素“%1$s”中缺失“%2$s属性。
 common#:#usrimport_xml_attribute_value_illegal#:#元素“%1$s”中的属性“%2$s”的值“%3$s”是非法的。
 common#:#usrimport_xml_attribute_value_inapplicable#:#元素“%1$s”中的属性“%2$s”的值“%3$s”无法应用到“%4$s”行为中。
@@ -6462,6 +6470,8 @@ content#:#cont_grid_width_s#:#Small###31 08 2017 new variable
 content#:#cont_grid_width_s_info#:#E.g. smartphone###31 08 2017 new variable
 content#:#cont_grid_width_xl#:#Extra Large###31 08 2017 new variable
 content#:#cont_grid_width_xl_info#:#E.g. wide desktop###31 08 2017 new variable
+content#:#cont_hacc_needs_height#:#Please set a content height for horizontal accordions.###05 05 2023 new variable
+content#:#cont_hacc_needs_width#:#Please set a content width for horizontal accordions.###05 05 2023 new variable
 content#:#cont_header#:#Header
 content#:#cont_height#:#高
 content#:#cont_help_no_valid_tooltip_id#:#The tooltip ID you have entered was not valid.###26 09 2014 new variable
@@ -7544,6 +7554,8 @@ crs#:#crs_members_groups#:#课程成员组
 crs#:#crs_members_map#:#课程成员地图
 crs#:#crs_members_print_title#:#课程成员
 crs#:#crs_min_one_admin#:#必须至少有一个管理员分配给本课程
+crs#:#crs_my_courses_groups_enabled#:#My Courses and Groups###20 07 2023 new variable
+crs#:#crs_my_courses_groups_enabled_info#:#If activated, the section 'My Courses and Groups' is visible.###20 07 2023 new variable
 crs#:#crs_new_status#:#您的新状态
 crs#:#crs_new_subscription#:#新课程订阅
 crs#:#crs_new_subscription_body#:#一个新用户已经订阅
@@ -7942,6 +7954,8 @@ dash#:#dash_studyprogramme#:#My Study Programmes###07 02 2020 new variable
 dash#:#dash_tile#:#Tile###07 02 2020 new variable
 dash#:#dash_view_courses_groups#:#Section ‘My Courses and Groups’###07 02 2020 new variable
 dash#:#dash_view_favourites#:#Section ‘Favourites’###07 02 2020 new variable
+dash#:#favourites_disabled_info#:#Add to favorites is deactivated. You may change this inside the repository settings.###20 07 2023 new variable
+dash#:#memberships_disabled_info#:#Subscriptions are deactivated. You may change this inside the course settings.###20 07 2023 new variable
 dateplaner#:#Fr_long#:#星期五
 dateplaner#:#Fr_short#:#周五
 dateplaner#:#Mo_long#:#星期一
@@ -8212,6 +8226,7 @@ dateplaner#:#cal_on_the#:#On the:
 dateplaner#:#cal_open_calendar#:#Open Calendar###31 08 2017 new variable
 dateplaner#:#cal_origin#:#Origin###31 08 2017 new variable
 dateplaner#:#cal_owner#:#Owner###31 08 2017 new variable
+dateplaner#:#cal_period#:#Period###21 06 2023 new variable
 dateplaner#:#cal_rec_err_limit#:#请输入一个有效的预约数。
 dateplaner#:#cal_recurrence_confirm_deletion#:#Please decide wether you want to delete single appointments or the complete series of appointments.###28 05 2021 new variable
 dateplaner#:#cal_recurrences#:#Recurrences
@@ -10536,6 +10551,7 @@ lti#:#lti_object_consumer#:#LTI Consumers###31 08 2017 new variable
 lti#:#lti_object_release_settings_form#:#LTI Freigaben bearbeiten###31 08 2017 new variable
 lti#:#lti_provider#:#LTI-Freigaben###31 08 2017 new variable
 lti#:#lti_provider_not_avail_msg#:#LTI Provider is set to 'Not Available'###07 02 2020 new variable
+lti#:#lti_provider_not_set_msg#:#LTI Provider is configured incompletely.###05 05 2023 new variable
 lti#:#lti_providing_tab#:#ILIAS as LTI Provider###07 02 2020 new variable
 lti#:#lti_released_objects#:#Objekt-Freigaben###31 08 2017 new variable
 lti#:#lti_select_provider#:#Select Provider###07 02 2020 new variable
@@ -13031,7 +13047,9 @@ rbac#:#crs_visible#:#课程可视
 rbac#:#crs_write#:#用户能编辑课程设置和管理内容
 rbac#:#crsr_copy#:#复制课程参考
 rbac#:#crsr_delete#:#删除课程参考
+rbac#:#crsr_edit_learning_progress#:#User can edit learning progress settings###20 07 2023 new variable
 rbac#:#crsr_edit_permission#:#更改权限设置
+rbac#:#crsr_read_learning_progress#:#User can view learning progress of other users###20 07 2023 new variable
 rbac#:#crsr_visible#:#课程参考可见权限
 rbac#:#crsr_write#:#课程参考编辑权限
 rbac#:#crss_edit_permission#:#User can change permission settings in Course administration###30 12 2013 new variable
@@ -13191,8 +13209,6 @@ rbac#:#iass_read_learning_progress#:#View learning progress information of a Ind
 rbac#:#iass_visible#:#Individual Assessment is visible###25 10 2016 new variable
 rbac#:#iass_write#:#Edit a Individual Assessment###25 10 2016 new variable
 rbac#:#il_lti_global_role#:#LTI User###24 09 2021 new variable
-rbac#:#il_orgu_employee#:#Organisational Unit Employee###30 12 2013 new variable
-rbac#:#il_orgu_superior#:#Organisational Unit Superior###30 12 2013 new variable
 rbac#:#il_sess_participant#:#Session Participant###31 08 2017 new variable
 rbac#:#il_sess_status_closed#:#Non-Participant Closed Session###31 08 2017 new variable
 rbac#:#ilias_id#:#ILIAS-ID###27 01 2015 new variable
@@ -13323,8 +13339,10 @@ rbac#:#orgu_cat_administrate_users#:#User can create and administrate local user
 rbac#:#orgu_copy#:#Copy Organisational Unit###27 01 2015 new variable
 rbac#:#orgu_delete#:#User can move or delete Organisational Unit###11 03 2014 new variable
 rbac#:#orgu_edit_permission#:#User can change permission settings###11 03 2014 new variable
+rbac#:#orgu_employee#:#Organisational Unit Employee###30 12 2013 new variable
 rbac#:#orgu_read#:#User has read access to Organisational Unit###11 03 2014 new variable
 rbac#:#orgu_read_users#:#User can read local user accounts created in this Organisational Unit###11 03 2014 new variable
+rbac#:#orgu_superior#:#Organisational Unit Superior###30 12 2013 new variable
 rbac#:#orgu_view_learning_progress#:#View Learning Progress###11 03 2014 new variable
 rbac#:#orgu_view_learning_progress_rec#:#View Learning Progress of Unit incl. Subunits###27 01 2015 new variable
 rbac#:#orgu_visible#:#Organisational Unit is visible###11 03 2014 new variable
@@ -14550,6 +14568,7 @@ skmg#:#skmg_confirm_user_removal#:#Do you really want to remove the following us
 skmg#:#skmg_cont_profiles_info#:#In this view, you can select the competence profiles with competence entries, which are related to the currently open object (course/group). To get to the global view with all competence profiles you are assigned to and all competence entries, click on the link below.###31 08 2022 new variable
 skmg#:#skmg_context_global#:#Global###30 04 2021 new variable
 skmg#:#skmg_context_local#:#Local###30 04 2021 new variable
+skmg#:#skmg_count_references#:#Number of referenced competences:###23 10 2023 new variable
 skmg#:#skmg_create_sctp#:#创建模板类目
 skmg#:#skmg_create_skill_category#:#创建技能类目
 skmg#:#skmg_create_skill_template#:#创建技能模板
@@ -16265,6 +16284,7 @@ user#:#clipboard_remove_btn#:#Remove from Clipboard###25 10 2016 new variable
 user#:#clipboard_table_title#:#Clipboard (User Accounts)###25 10 2016 new variable
 user#:#clipboard_user_added#:#Added selected users to clipboard.###25 10 2016 new variable
 user#:#confirm_delete_starting_point#:#Are you sure you want to delete this rule?###31 08 2017 new variable
+user#:#confirm_logout_for_email_change#:#You changed your email. To finalize this change, you will need to provide your password. The system is thus going to log you out and you will have 5 minutes to log in again. All other changes will be saved before logging you out.###23 10 2023 new variable
 user#:#create_starting_point#:#Create Rule###31 08 2017 new variable
 user#:#criteria#:#Criteria###31 08 2017 new variable
 user#:#del_mail_body#:#Hello %1$s, %2$s you haven't logged in for a long period of time, on %3$s. So your account will be deleted in %4$s days. You have to login again to prevent the deletion of your account.###26 09 2014 new variable
@@ -16272,6 +16292,7 @@ user#:#del_mail_subject#:#(ILIAS) – Your account will be deleted###26 09 2014 
 user#:#delete_inactive_user_accounts_frequency#:#Frequency###26 09 2014 new variable
 user#:#delete_inactive_user_accounts_frequency_desc#:#Frequency, in which the deletion and email distibution will be tested.###26 09 2014 new variable
 user#:#editing_this_role#:#Role###31 08 2017 new variable
+user#:#email_could_not_be_changed#:#The request to change your email could not be finalized.###23 10 2023 new variable
 user#:#enable_local_user_administration#:#启用本地用户管理
 user#:#enable_local_user_administration_info#:#如果启用，本地用户账号在类目中能被管理。
 user#:#feedhash#:#Newsfeedhash###08 10 2015 new variable
@@ -16282,6 +16303,7 @@ user#:#interests_general#:#General Interests###26 09 2014 new variable
 user#:#interests_help_looking#:#Looking For Help###26 09 2014 new variable
 user#:#interests_help_offered#:#Offering Help###26 09 2014 new variable
 user#:#msg_spoint_not_modified#:#Starting point not modified###07 02 2020 new variable
+user#:#no_deactivate_yourself#:#You cannot deactivate your own user account.###20 07 2023 new variable
 user#:#obj_ref_id_not_exist#:#The entered Reference-Id does not exist###07 02 2020 new variable
 user#:#restrict_user_access#:#受限访问用户账号
 user#:#restrict_user_access_info#:#如果启用，访问用户账号将受限。访问取决于“用户账号”和“类目”中的权限“本地用户账号读访问权限”。

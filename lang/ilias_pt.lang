@@ -890,6 +890,7 @@ assessment#:#log_user_not_entered_values#:#O utilizador não introduziu valores
 assessment#:#log_user_solution_willingly_deleted#:#O utilizador apagou a resposta.
 assessment#:#log_wrong_test_password_entered#:#O participante introduziu uma palavra-passe de teste errada.
 assessment#:#longmenu#:#Menu comprido
+assessment#:#longmenu_answeroptions_differ#:#This question does not work correctly, as there are not the same amount of gaps in the text as in the correction options.###20 07 2023 new variable
 assessment#:#longmenu_text#:#Texto de menu comprido
 assessment#:#mailnottype#:#Enviar notificação mesmo que um utilizador termine uma tentativa de teste
 assessment#:#mailnottype_desc#:#Notify the owner of the test <strong>even if</strong> the number of test attempts has not been limited.###09 11 2022 new variable
@@ -932,6 +933,7 @@ assessment#:#new_category#:#Nova unidade de categoria
 assessment#:#new_unit#:#Nova unidade
 assessment#:#next_question#:#Próximo
 assessment#:#next_question_rows#:#Perguntas %d - %d de %d >>
+assessment#:#no_manual_feedback_export_info#:#Manual feedbacks will not be exported.###12 09 2023 new variable
 assessment#:#no_passed_mark#:#Tem de definir pelo menos uma marca para APROVADO! O esquema de anotações não foi guardado.
 assessment#:#no_question_selected_for_move#:#Selecione pelo menos uma pergunta para mover!
 assessment#:#no_questions_available#:#Não existem nenhumas perguntas disponíveis!
@@ -1660,6 +1662,7 @@ assessment#:#tst_password_form#:#Inserir palavra-passe de teste
 assessment#:#tst_password_introduction#:#Os participantes podem rever o processar apenas por um período de tempo especificado. O tempo começa a contar a partir do momento que um utilizador inicia o teste pela primeira vez. Suspender o teste não para o relógio. Se houver um número limitado de possíveis tentativas do teste, aparece uma função adicional para garantir tempo extra aos participantes no separador 'Participantes'.
 assessment#:#tst_percent_solved#:#Todas as perguntas, exceto as que forem respondidas corretamente
 assessment#:#tst_player_answer_saved_and_locked#:#Answer is saved and locked and can no longer be changed###21 12 2022 new variable
+assessment#:#tst_please_select_source_pool#:#Please select a question pool.###12 09 2023 new variable
 assessment#:#tst_please_select_target_for_pool_derives#:#Selecione um destinatário.
 assessment#:#tst_position#:#Pergunta %s de %s
 assessment#:#tst_position_without_total#:#Pergunta %s
@@ -2552,6 +2555,8 @@ book#:#book_reminder_day#:#Definições de apresentação
 book#:#book_reminder_day_info#:#Software de terceiros
 book#:#book_reminder_days#:#Personalizar página
 book#:#book_reminder_setting#:#Caminho absoluto
+book#:#book_rerun_assignments#:#Run Assignment Process###05 05 2023 new variable
+book#:#book_rerun_confirmation#:#Attention. The assignments via preference process has already run. You may restart the process, if any errors have occured, e.g. no assignments have been saved. To prevent multiple assignments delete all reservations before restarting the process.###05 05 2023 new variable
 book#:#book_reservation_available#:#%s disponível
 book#:#book_reservation_confirmed#:#A sua reserva foi confirmada.
 book#:#book_reservation_failed#:#A sua reserva falhou.
@@ -5569,6 +5574,7 @@ common#:#short_inst_name#:#Título curto
 common#:#short_inst_name_info#:#Note que as páginas têm de preceder todos os subcapítulos do mesmo nível.
 common#:#show#:#Capítulos e páginas
 common#:#show_all_details#:#Mostrar todos os detalhes
+common#:#show_content#:#Show Content###05 05 2023 new variable
 common#:#show_details#:#Capítulo marcado para mover. Selecione destino agora.
 common#:#show_filter#:#Classe de estilo
 common#:#show_hidden_sections#:#Mostrar mais informação &raquo;
@@ -5592,8 +5598,10 @@ common#:#soap_user_administration_desc#:#Clique no canto superior esquerdo da á
 common#:#soap_wsdl_path#:#Caminho WSDL
 common#:#soap_wsdl_path_info#:#Insira o caminho para o ficheiro wsdl de ilias que deve ser usado para o webservice. Se deixar este campo vazio, será usado o seguinte caminho por defeito:%s
 common#:#sort_ascending#:#Sort Ascending###30 04 2021 new variable
+common#:#sort_ascending_long#:#Change Sort Direction to Ascending###31 05 2023 new variable
 common#:#sort_by_this_column#:#Note que as mesmas formatações não são suportadas em módulos de conteúdo.
 common#:#sort_descending#:#Sort Descending###30 04 2021 new variable
+common#:#sort_descending_long#:#Change Sort Direction to Descending###31 05 2023 new variable
 common#:#sort_inherit_prefix#:#Predefinição
 common#:#sorting_asc#:#Ascendente
 common#:#sorting_creation_header#:#Por data de criação
@@ -5719,7 +5727,6 @@ common#:#udf_delete_sure#:#Tem a certeza que quer apagar este campo e todos os d
 common#:#udf_duplicate_entries#:#Os valores têm de ser únicos.
 common#:#udf_field_deleted#:#Campo apagado.
 common#:#udf_name_already_exists#:#Este nome de campo já existe. Escolha um nome diferente.
-common#:#udf_required_and_visible_requires_changeable#:#When a field is ‘Required’ and ‘Visible in Personal Data’, it must also be ‘Changeable in Profile’###01 02 2023 new variable
 common#:#udf_required_requires_visib_reg#:#Inserir texto
 common#:#udf_type_date#:#Inserir pergunta
 common#:#udf_type_datetime#:#Data e hora
@@ -5846,6 +5853,7 @@ common#:#usrimport_no_insert_ext_account_exists#:#Permite manter IDs extra para 
 common#:#usrimport_no_update_ext_account_exists#:#identifierref
 common#:#usrimport_with_specified_role_not_permitted#:#Não é permitido importar com função especificada.
 common#:#usrimport_wrong_file_count#:#Too many files in import-folder. Please try again.###30 04 2021 new variable
+common#:#usrimport_xml_anonymous_or_root_not_allowed#:#Neither the system-account nor the anonymous account can be changed through the import.###12 09 2023 new variable
 common#:#usrimport_xml_attribute_missing#:#Falta o atributo "%2$s" no elemento "%1$s".
 common#:#usrimport_xml_attribute_value_illegal#:#O valor "%3$s" do atributo "%2$s" no elemento "%1$s" é ilegal.
 common#:#usrimport_xml_attribute_value_inapplicable#:#O valor "%3$s" do atributo "%2$s" no elemento "%1$s" não é aplicável à ação "%4$s".
@@ -6463,6 +6471,8 @@ content#:#cont_grid_width_s#:#Pequeno
 content#:#cont_grid_width_s_info#:#P. ex. smartphone
 content#:#cont_grid_width_xl#:#Extra grande
 content#:#cont_grid_width_xl_info#:#P. ex. wide desktop
+content#:#cont_hacc_needs_height#:#Please set a content height for horizontal accordions.###05 05 2023 new variable
+content#:#cont_hacc_needs_width#:#Please set a content width for horizontal accordions.###05 05 2023 new variable
 content#:#cont_header#:#Cabeçalho
 content#:#cont_height#:#Cron job reativado por administrador
 content#:#cont_help_no_valid_tooltip_id#:#O ID da dica de contexto que inseriu não era válido.
@@ -7545,6 +7555,8 @@ crs#:#crs_members_groups#:#Os utilizadores podem classificar entradas até cinco
 crs#:#crs_members_map#:#Mapa dos membros do curso
 crs#:#crs_members_print_title#:#Membros do curso
 crs#:#crs_min_one_admin#:#Tem de haver pelo menos um administrador atribuído a este curso.
+crs#:#crs_my_courses_groups_enabled#:#My Courses and Groups###20 07 2023 new variable
+crs#:#crs_my_courses_groups_enabled_info#:#If activated, the section 'My Courses and Groups' is visible.###20 07 2023 new variable
 crs#:#crs_new_status#:#O seu novo estado é:
 crs#:#crs_new_subscription#:#Campo para opções de referência guardados num campo diferente de uma tabela.
 crs#:#crs_new_subscription_body#:#Mostrar como link para a entrada referenciada
@@ -7943,6 +7955,8 @@ dash#:#dash_studyprogramme#:#My Study Programmes###07 02 2020 new variable
 dash#:#dash_tile#:#Tile###07 02 2020 new variable
 dash#:#dash_view_courses_groups#:#Section ‘My Courses and Groups’###07 02 2020 new variable
 dash#:#dash_view_favourites#:#Section ‘Favourites’###07 02 2020 new variable
+dash#:#favourites_disabled_info#:#Add to favorites is deactivated. You may change this inside the repository settings.###20 07 2023 new variable
+dash#:#memberships_disabled_info#:#Subscriptions are deactivated. You may change this inside the course settings.###20 07 2023 new variable
 dateplaner#:#Fr_long#:#Fechado
 dateplaner#:#Fr_short#:#Os membros têm de ativar manualmente notificações
 dateplaner#:#Mo_long#:#Atualizado (dados específicos do grupo)
@@ -8213,6 +8227,7 @@ dateplaner#:#cal_on_the#:#A.
 dateplaner#:#cal_open_calendar#:#Abrir calendário
 dateplaner#:#cal_origin#:#Origem
 dateplaner#:#cal_owner#:#Proprietário
+dateplaner#:#cal_period#:#Period###21 06 2023 new variable
 dateplaner#:#cal_rec_err_limit#:#Insira um valor válido de marcações.
 dateplaner#:#cal_recurrence_confirm_deletion#:#Please decide wether you want to delete single appointments or the complete series of appointments.###28 05 2021 new variable
 dateplaner#:#cal_recurrences#:#Recorrências
@@ -10537,6 +10552,7 @@ lti#:#lti_object_consumer#:#Consumidores LTI
 lti#:#lti_object_release_settings_form#:#Simulação
 lti#:#lti_provider#:#Tamanho
 lti#:#lti_provider_not_avail_msg#:#LTI Provider is set to 'Not Available'###07 02 2020 new variable
+lti#:#lti_provider_not_set_msg#:#LTI Provider is configured incompletely.###05 05 2023 new variable
 lti#:#lti_providing_tab#:#ILIAS as LTI Provider###07 02 2020 new variable
 lti#:#lti_released_objects#:#Nível de competência
 lti#:#lti_select_provider#:#Select Provider###07 02 2020 new variable
@@ -13032,7 +13048,9 @@ rbac#:#crs_visible#:#Esta pergunta é obrigatória. Tem de responder à pergunta
 rbac#:#crs_write#:#Banco de perguntas
 rbac#:#crsr_copy#:#O inquérito já contém conjuntos de dados. Não pode editar as perguntas do inquérito até ter removido esses conjuntos de dados na secção de participação.
 rbac#:#crsr_delete#:#O inquérito já contém conjuntos de dados. Não pode editar as perguntas do inquérito até ter removido esses conjuntos de dados.
+rbac#:#crsr_edit_learning_progress#:#User can edit learning progress settings###20 07 2023 new variable
 rbac#:#crsr_edit_permission#:#Esta mensagem é permanentemente exibida no separador ‘Informação’.
+rbac#:#crsr_read_learning_progress#:#User can view learning progress of other users###20 07 2023 new variable
 rbac#:#crsr_visible#:#Não pode iniciar o inquérito! Atualmente ele está offline.
 rbac#:#crsr_write#:#Próximo >>
 rbac#:#crss_edit_permission#:#O utilizador pode mudar definições de permissões na administração do curso
@@ -13192,8 +13210,6 @@ rbac#:#iass_read_learning_progress#:#Ativar dados expandidos
 rbac#:#iass_visible#:#A avaliação individual adicionada
 rbac#:#iass_write#:#Itens que determinam o progresso de aprendizagem
 rbac#:#il_lti_global_role#:#LTI User###24 09 2021 new variable
-rbac#:#il_orgu_employee#:#Funcionário unidade organizacional
-rbac#:#il_orgu_superior#:#Superior hierárquico unidade organizacional
 rbac#:#il_sess_participant#:#Sessão participante
 rbac#:#il_sess_status_closed#:#Sessão fechada não participante
 rbac#:#ilias_id#:#ID ILIAS
@@ -13324,8 +13340,10 @@ rbac#:#orgu_cat_administrate_users#:#O utilizador pode criar e administrar conta
 rbac#:#orgu_copy#:#Copiar unidade organizacional
 rbac#:#orgu_delete#:#O utilizador pode mover ou apagar unidade organizacional
 rbac#:#orgu_edit_permission#:#O utilizador pode mudar as definições de permissões
+rbac#:#orgu_employee#:#Funcionário unidade organizacional
 rbac#:#orgu_read#:#O utilizador tem acesso de leitura à unidade organizacional
 rbac#:#orgu_read_users#:#O utilizador pode ler contas de utilizador locais criadas nesta unidade organizacional
+rbac#:#orgu_superior#:#Superior hierárquico unidade organizacional
 rbac#:#orgu_view_learning_progress#:#Ver progresso de aprendizagem
 rbac#:#orgu_view_learning_progress_rec#:#Ver progresso de aprendizagem da unidade incl. subunidades
 rbac#:#orgu_visible#:#A unidade organizacional está visível
@@ -14551,6 +14569,7 @@ skmg#:#skmg_confirm_user_removal#:#Quer remover os seguintes utilizadores do per
 skmg#:#skmg_cont_profiles_info#:#In this view, you can select the competence profiles with competence entries, which are related to the currently open object (course/group). To get to the global view with all competence profiles you are assigned to and all competence entries, click on the link below.###31 08 2022 new variable
 skmg#:#skmg_context_global#:#Global###30 04 2021 new variable
 skmg#:#skmg_context_local#:#Local###30 04 2021 new variable
+skmg#:#skmg_count_references#:#Number of referenced competences:###23 10 2023 new variable
 skmg#:#skmg_create_sctp#:#Criar categoria de modelo
 skmg#:#skmg_create_skill_category#:#Create Skill Category
 skmg#:#skmg_create_skill_template#:#Create Skill Template
@@ -16266,6 +16285,7 @@ user#:#clipboard_remove_btn#:#Remover da área de transferência
 user#:#clipboard_table_title#:#Área de transferência (contas de utilizador)
 user#:#clipboard_user_added#:#Utilizadores selecionados adicionados à área de transferência.
 user#:#confirm_delete_starting_point#:#Tem a certeza que quer apagar esta regra?
+user#:#confirm_logout_for_email_change#:#You changed your email. To finalize this change, you will need to provide your password. The system is thus going to log you out and you will have 5 minutes to log in again. All other changes will be saved before logging you out.###23 10 2023 new variable
 user#:#create_starting_point#:#Criar regra
 user#:#criteria#:#Critérios
 user#:#del_mail_body#:#Hello %1$s, %2$s you haven't logged in for a long period of time, on %3$s. So your account will be deleted in %4$s days. You have to login again to prevent the deletion of your account.
@@ -16273,6 +16293,7 @@ user#:#del_mail_subject#:#(ILIAS) – A sua conta foi apagada
 user#:#delete_inactive_user_accounts_frequency#:#Frequência
 user#:#delete_inactive_user_accounts_frequency_desc#:#Frequency, in which the deletion and email distibution will be tested.
 user#:#editing_this_role#:#Função
+user#:#email_could_not_be_changed#:#The request to change your email could not be finalized.###23 10 2023 new variable
 user#:#enable_local_user_administration#:#Habilitar administração local de usuário
 user#:#enable_local_user_administration_info#:#Se habiliatdo, contas locais de usuário podem ser administradas nas categorias.
 user#:#feedhash#:#Newsfeedhash
@@ -16283,6 +16304,7 @@ user#:#interests_general#:#Interesses gerais
 user#:#interests_help_looking#:#Procurar ajuda
 user#:#interests_help_offered#:#Oferecer ajuda
 user#:#msg_spoint_not_modified#:#Ponto de início não modificado
+user#:#no_deactivate_yourself#:#You cannot deactivate your own user account.###20 07 2023 new variable
 user#:#obj_ref_id_not_exist#:#O Id de referência introduzido não existe
 user#:#restrict_user_access#:#Acesso restrito aos contas usuário
 user#:#restrict_user_access_info#:#Se habilitado o acesso aos contas de usuário é restrito. A permissão de acesso depende de "Acesso para Leitura da conta local do usuário" no "Contas de usuário" e "Categorias".

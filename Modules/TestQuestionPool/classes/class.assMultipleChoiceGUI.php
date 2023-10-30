@@ -385,7 +385,7 @@ class assMultipleChoiceGUI extends assQuestionGUI implements ilGuiQuestionScorin
             }
             $template->parseCurrentBlock();
         }
-        $questiontext = $this->object->getQuestion();
+        $questiontext = $this->object->getQuestionForHTMLOutput();
         if ($show_feedback && $this->hasInlineFeedback()) {
             $questiontext .= $this->buildFocusAnchorHtml();
         }
@@ -485,7 +485,7 @@ class assMultipleChoiceGUI extends assQuestionGUI implements ilGuiQuestionScorin
             $template->setVariable('SELECTION_LIMIT_VALUE', 'null');
         }
         $template->setVariable("QUESTION_ID", $this->object->getId());
-        $questiontext = $this->object->getQuestion();
+        $questiontext = $this->object->getQuestionForHTMLOutput();
         if ($showInlineFeedback && $this->hasInlineFeedback()) {
             $questiontext .= $this->buildFocusAnchorHtml();
         }
@@ -600,8 +600,7 @@ class assMultipleChoiceGUI extends assQuestionGUI implements ilGuiQuestionScorin
             $template->parseCurrentBlock();
         }
 
-        $questiontext = $this->object->getQuestion();
-        $template->setVariable("QUESTIONTEXT", $this->object->prepareTextareaOutput($questiontext, true));
+        $template->setVariable("QUESTIONTEXT", $this->object->getQuestionForHTMLOutput());
         $template->setVariable("QUESTION_ID", $this->object->getId());
         if ($this->object->getSelectionLimit()) {
             $template->setVariable('SELECTION_LIMIT_HINT', sprintf(
@@ -708,7 +707,6 @@ class assMultipleChoiceGUI extends assQuestionGUI implements ilGuiQuestionScorin
         if ($this->object->isSingleline) {
             foreach ($_POST['choice']['answer'] as $index => $answertext) {
                 $answertext = ilUtil::secureString(htmlentities($answertext));
-
                 $picturefile = $_POST['choice']['imagename'][$index];
                 $file_org_name = $_FILES['choice']['name']['image'][$index];
                 $file_temp_name = $_FILES['choice']['tmp_name']['image'][$index];
@@ -729,7 +727,8 @@ class assMultipleChoiceGUI extends assQuestionGUI implements ilGuiQuestionScorin
                     $_POST['choice']['points'][$index],
                     $_POST['choice']['points_unchecked'][$index],
                     $index,
-                    $picturefile
+                    $picturefile,
+                    $_POST['choice']['answer_id'][$index]
                 );
             }
         } else {
@@ -739,7 +738,9 @@ class assMultipleChoiceGUI extends assQuestionGUI implements ilGuiQuestionScorin
                     $answertext,
                     $_POST['choice']['points'][$index],
                     $_POST['choice']['points_unchecked'][$index],
-                    $index
+                    $index,
+                    "",
+                    $_POST['choice']['answer_id'][$index]
                 );
             }
         }

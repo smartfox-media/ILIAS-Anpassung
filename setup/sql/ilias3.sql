@@ -1641,7 +1641,9 @@ CREATE TABLE `cal_entries` (
   `context_info` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cal_id`),
   KEY `i1_idx` (`last_update`),
-  KEY `i2_idx` (`context_id`)
+  KEY `i2_idx` (`context_id`),
+  KEY `i3_idx` (`starta`),
+  KEY `i4_idx` (`enda`)
 ) ;
 
 --
@@ -4895,7 +4897,8 @@ CREATE TABLE `event_appointment` (
   `starting_time` int(11) NOT NULL DEFAULT 0,
   `ending_time` int(11) NOT NULL DEFAULT 0,
   `fulltime` tinyint(4) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`appointment_id`)
+  PRIMARY KEY (`appointment_id`),
+  KEY `i1_idx` (`event_id`)
 ) ;
 
 --
@@ -15525,7 +15528,9 @@ CREATE TABLE `rbac_fa` (
   `protected` char(1) DEFAULT 'n',
   `blocked` tinyint(4) NOT NULL DEFAULT 0,
   PRIMARY KEY (`rol_id`,`parent`),
-  KEY `i1_idx` (`parent`)
+  KEY `i1_idx` (`parent`),
+  KEY `i2_idx` (`assign`,`rol_id`),
+  KEY `i3_idx` (`assign`,`parent`)
 ) ;
 
 --
@@ -15631,7 +15636,6 @@ INSERT INTO `rbac_operations` VALUES (19,'create_crs','create new course','creat
 INSERT INTO `rbac_operations` VALUES (20,'create_lm','create new learning module','create',9999);
 INSERT INTO `rbac_operations` VALUES (21,'create_sahs','create new SCORM/AICC learning module','create',9999);
 INSERT INTO `rbac_operations` VALUES (22,'create_glo','create new glossary','create',9999);
-INSERT INTO `rbac_operations` VALUES (23,'create_dbk','create new digibook','create',9999);
 INSERT INTO `rbac_operations` VALUES (24,'create_exc','create new exercise','create',9999);
 INSERT INTO `rbac_operations` VALUES (25,'create_file','upload new file','create',9999);
 INSERT INTO `rbac_operations` VALUES (26,'create_fold','create new folder','create',9999);
@@ -19933,7 +19937,7 @@ INSERT INTO `settings` VALUES ('common','dbupwarn_tos_migr_54x','1');
 INSERT INTO `settings` VALUES ('common','dbupwarn_tstfixqstseq','1');
 INSERT INTO `settings` VALUES ('common','dbup_tst_skl_thres_mig_done','1');
 INSERT INTO `settings` VALUES ('common','db_hotfixes_5_3','18');
-INSERT INTO `settings` VALUES ('common','db_hotfixes_7','95');
+INSERT INTO `settings` VALUES ('common','db_hotfixes_7','106');
 INSERT INTO `settings` VALUES ('common','db_update_running','0');
 INSERT INTO `settings` VALUES ('common','db_version','5751');
 INSERT INTO `settings` VALUES ('common','default_repository_view','flat');
@@ -21042,7 +21046,8 @@ CREATE TABLE `style_template_seq` (
 CREATE TABLE `style_usage` (
   `obj_id` int(11) NOT NULL DEFAULT 0,
   `style_id` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`obj_id`)
+  PRIMARY KEY (`obj_id`),
+  KEY `i1_idx` (`style_id`)
 ) ;
 
 --
@@ -22669,7 +22674,6 @@ CREATE TABLE `tree` (
   `depth` smallint(6) NOT NULL DEFAULT 0,
   `path` varchar(4000) DEFAULT NULL,
   PRIMARY KEY (`child`),
-  KEY `i1_idx` (`child`),
   KEY `i2_idx` (`parent`),
   KEY `i3_idx` (`tree`),
   KEY `i4_idx` (`path`(255))
@@ -23786,6 +23790,21 @@ CREATE TABLE `usr_account_codes_seq` (
 
 
 --
+-- Table structure for table `usr_change_email_token`
+--
+
+CREATE TABLE `usr_change_email_token` (
+  `token` varchar(32) DEFAULT NULL,
+  `new_email` varchar(256) DEFAULT NULL,
+  `valid_until` bigint(20) DEFAULT NULL
+) ;
+
+--
+-- Dumping data for table `usr_change_email_token`
+--
+
+
+--
 -- Table structure for table `usr_cron_mail_reminder`
 --
 
@@ -24113,7 +24132,7 @@ CREATE TABLE `usr_search` (
 --
 
 CREATE TABLE `usr_sess_istorage` (
-  `session_id` varchar(80) NOT NULL DEFAULT '',
+  `session_id` varchar(256) NOT NULL DEFAULT '',
   `component_id` varchar(30) NOT NULL DEFAULT '',
   `vkey` varchar(50) NOT NULL DEFAULT '',
   `value` varchar(1000) DEFAULT NULL,
@@ -24130,7 +24149,7 @@ CREATE TABLE `usr_sess_istorage` (
 --
 
 CREATE TABLE `usr_session` (
-  `session_id` varchar(250) NOT NULL DEFAULT ' ',
+  `session_id` varchar(256) NOT NULL DEFAULT ' ',
   `expires` int(11) NOT NULL DEFAULT 0,
   `data` longtext DEFAULT NULL,
   `ctime` int(11) NOT NULL DEFAULT 0,
@@ -24200,7 +24219,7 @@ CREATE TABLE `usr_session_stats` (
 --
 
 CREATE TABLE `usr_session_stats_raw` (
-  `session_id` varchar(80) NOT NULL DEFAULT '',
+  `session_id` varchar(256) NOT NULL DEFAULT '',
   `type` smallint(6) NOT NULL DEFAULT 0,
   `start_time` int(11) NOT NULL DEFAULT 0,
   `end_time` int(11) DEFAULT NULL,
@@ -24431,7 +24450,8 @@ CREATE TABLE `webr_items` (
   `valid` tinyint(4) NOT NULL DEFAULT 0,
   `internal` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`link_id`),
-  KEY `i1_idx` (`link_id`,`webr_id`)
+  KEY `i1_idx` (`link_id`,`webr_id`),
+  KEY `i3_idx` (`webr_id`)
 ) ;
 
 --
@@ -25026,4 +25046,4 @@ CREATE TABLE `xmlvalue_seq` (
 
 
 
--- Dump completed on 2023-04-05 17:39:51
+-- Dump completed on 2023-10-23 14:50:18
