@@ -426,7 +426,7 @@ class ilErrorHandling extends PEAR
     {
         global $ilLog;
 
-        if ($level & error_reporting()) {
+        if ($level & error_reporting() && $level != $this->WARNING) {
             if (!$this->isDevmodeActive()) {
                 // log E_USER_NOTICE, E_STRICT, E_DEPRECATED, E_USER_DEPRECATED only
                 if ($level >= E_USER_NOTICE) {
