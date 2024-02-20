@@ -5,6 +5,7 @@
  * Soap methods for adminstrating web links
  * @author Stefan Meyer <smeyer.ilias@gmx.de>
  */
+include_once './webservice/soap/classes/class.ilSoapAdministration.php';
 class ilSoapWebLinkAdministration extends ilSoapAdministration
 {
     public function __construct()
