@@ -177,7 +177,7 @@ class ilWebLinkXmlParser extends ilMDSaxParser
                         $this->getMode() == self::MODE_UPDATE &&
                         (!isset($a_attribs['action']) || $a_attribs['action'] == 'Update')
                     ) {
-                        $this->current_link_id = $a_attribs['id'];
+                        $this->current_link_id = intval($a_attribs['id']);
                         $this->current_item_update = true;
                     } else {
                         throw new ilWebLinkXmlParserException(
