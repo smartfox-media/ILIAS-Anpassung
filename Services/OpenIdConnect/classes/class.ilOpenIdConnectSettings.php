@@ -377,7 +377,7 @@ class ilOpenIdConnectSettings
         $this->storage->set('le_type', (string) $this->getLoginElementType());
         $this->storage->set('prompt_type', (string) $this->getLoginPromptType());
         $this->storage->set('logout_scope', (string) $this->getLogoutScope());
-        $this->storage->set('logout_auth0_style', (int) $this->isLogoutAuth0Style());
+        $this->storage->set('logout_auth0_style', (string) ((int) $this->isLogoutAuth0Style()));
         $this->storage->set('custom_session', (string) ((int) $this->isCustomSession()));
         $this->storage->set('session_duration', (string) $this->getSessionDuration());
         $this->storage->set('allow_sync', (string) ((int) $this->isSyncAllowed()));

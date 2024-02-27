@@ -56,7 +56,7 @@ class ilAuthProviderOpenIdConnect extends ilAuthProvider
             if ($authenticated) {
                 if (!isset($_GET["fromAuth0Logout"]) || isset($_GET["fromAuth0Logout"]) != 1) {
                     // User just clicked the logout button -> Redirect user to Auth0 logout
-                    header("Location: ".$this->settings->getProvider()."/v2/logout?client_id=".urlencode($this->settings->getClientId())."&returnTo=".urlencode(rtrim(ILIAS_HTTP_PATH, '/')."/logout.php?fromAuth0Logout=1"));
+                    header("Location: ".$this->settings->getProvider()."/v2/logout?client_id=".urlencode($this->settings->getClientId())."&returnTo=".urlencode(rtrim(ILIAS_HTTP_PATH, '/')."/".ilStartUpGUI::logoutUrl()."&fromAuth0Logout=1"));
                     exit;
                 } else {
                     ilSession::set('oidc_authenticated', '');
