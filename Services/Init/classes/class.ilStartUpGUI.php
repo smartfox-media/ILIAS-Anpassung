@@ -260,7 +260,14 @@ class ilStartUpGUI implements ilCtrlBaseClassInterface, ilCtrlSecurityInterface
      */
     protected function showLoginPage(ilPropertyFormGUI $form = null): void
     {
-        global $tpl;
+        global $tpl, $ilCtrl;
+
+        // Prevent login-form on other urls than /login.php, to be able to redirect a user to another login-page, using a proxy.
+        $path = $_SERVER['REQUEST_URI'];
+        if (!str_starts_with($path, "/login.php")) {
+            $ilCtrl->redirectToURL("login.php");
+        }
+        
 
         $this->help->setSubScreenId('login');
 
@@ -1404,7 +1411,7 @@ class ilStartUpGUI implements ilCtrlBaseClassInterface, ilCtrlSecurityInterface
         // redirect and show logout information
         $this->ctrl->setParameter($this, 'client_id', $client_id);
         $this->ctrl->setParameter($this, 'lang', $user_language);
-        $this->ctrl->redirect($this, 'showLogout');
+        $this->showLoginPage();
     }
 
     /**

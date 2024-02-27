@@ -51,21 +51,33 @@ class ilAuthProviderOpenIdConnect extends ilAuthProvider
             return;
         }
 
-        $id_token = ilSession::get(self::OIDC_AUTH_IDTOKEN);
-        $this->logger->debug('Logging out with token: ' . $id_token);
-
-        if (isset($id_token) && $id_token !== '') {
-            ilSession::set(self::OIDC_AUTH_IDTOKEN, '');
-            $oidc = $this->initClient();
-            try {
-                $oidc->signOut(
-                    $id_token,
-                    ILIAS_HTTP_PATH . '/' . ilStartUpGUI::logoutUrl()
-                );
-            } catch (\Jumbojett\OpenIDConnectClientException $e) {
-                $this->logger->warning("Logging out of OIDC provider failed with: " . $e->getMessage());
+        if ($this->settings->isLogoutAuth0Style()) {
+            $authenticated = ilSession::get('oidc_authenticated');
+            if ($authenticated) {
+                if (!isset($_GET["fromAuth0Logout"]) || isset($_GET["fromAuth0Logout"]) != 1) {
+                    // User just clicked the logout button -> Redirect user to Auth0 logout
+                    header("Location: ".$this->settings->getProvider()."/v2/logout?client_id=".urlencode($this->settings->getClientId())."&returnTo=".urlencode(rtrim(ILIAS_HTTP_PATH, '/')."/logout.php?fromAuth0Logout=1"));
+                    exit;
+                } else {
+                    ilSession::set('oidc_authenticated', '');
+                }
             }
+        } else {
+            $id_token = ilSession::get(self::OIDC_AUTH_IDTOKEN);
+            $this->logger->debug('Logging out with token: ' . $id_token);
 
+            if (isset($id_token) && $id_token !== '') {
+                ilSession::set(self::OIDC_AUTH_IDTOKEN, '');
+                $oidc = $this->initClient();
+                try {
+                    $oidc->signOut(
+                        $id_token,
+                        ILIAS_HTTP_PATH . '/' . ilStartUpGUI::logoutUrl()
+                    );
+                } catch (\Jumbojett\OpenIDConnectClientException $e) {
+                    $this->logger->warning("Logging out of OIDC provider failed with: " . $e->getMessage());
+                }
+            }
         }
     }
 
@@ -107,7 +119,11 @@ class ilAuthProviderOpenIdConnect extends ilAuthProvider
             //$_GET['target'] = $this->getCredentials()->getRedirectionTarget();// TODO PHP8-REVIEW Please eliminate this. Mutating the request is not allowed and will not work in ILIAS 8.
 
             if ($this->settings->getLogoutScope() === ilOpenIdConnectSettings::LOGOUT_SCOPE_GLOBAL) {
-                ilSession::set(self::OIDC_AUTH_IDTOKEN, $oidc->getIdToken());
+                if ($this->settings->isLogoutAuth0Style()) {
+                    ilSession::set('oidc_authenticated', true);
+                } else {
+                    ilSession::set(self::OIDC_AUTH_IDTOKEN, $oidc->getIdToken());
+                }
             }
             return true;
         } catch (Exception $e) {

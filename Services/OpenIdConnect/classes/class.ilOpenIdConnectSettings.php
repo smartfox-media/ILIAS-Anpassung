@@ -57,6 +57,7 @@ class ilOpenIdConnectSettings
     private ?string $login_element_text = null;
     private int $login_prompt_type = self::LOGIN_ENFORCE;
     private ?int $logout_scope = null;
+    private bool $logout_auth0_style = false;
     private bool $custom_session = false;
     private int $session_duration = 60;
     private ?bool $allow_sync;
@@ -180,6 +181,16 @@ class ilOpenIdConnectSettings
     public function getLogoutScope(): int
     {
         return $this->logout_scope;
+    }
+
+    public function useLogoutAuth0Style(bool $a_auth0_style): void
+    {
+        $this->logout_auth0_style = $a_auth0_style;
+    }
+
+    public function isLogoutAuth0Style(): bool
+    {
+        return $this->logout_auth0_style;
     }
 
     public function useCustomSession(bool $a_stat): void
@@ -366,6 +377,7 @@ class ilOpenIdConnectSettings
         $this->storage->set('le_type', (string) $this->getLoginElementType());
         $this->storage->set('prompt_type', (string) $this->getLoginPromptType());
         $this->storage->set('logout_scope', (string) $this->getLogoutScope());
+        $this->storage->set('logout_auth0_style', (int) $this->isLogoutAuth0Style());
         $this->storage->set('custom_session', (string) ((int) $this->isCustomSession()));
         $this->storage->set('session_duration', (string) $this->getSessionDuration());
         $this->storage->set('allow_sync', (string) ((int) $this->isSyncAllowed()));
@@ -405,6 +417,7 @@ class ilOpenIdConnectSettings
         $this->setLoginElementType((int) $this->storage->get('le_type'));
         $this->setLoginPromptType((int) $this->storage->get('prompt_type', (string) self::LOGIN_ENFORCE));
         $this->setLogoutScope((int) $this->storage->get('logout_scope', (string) self::LOGOUT_SCOPE_GLOBAL));
+        $this->useLogoutAuth0Style((bool) $this->storage->get('logout_auth0_style'), false);
         $this->useCustomSession((bool) $this->storage->get('custom_session', '0'));
         $this->setSessionDuration((int) $this->storage->get('session_duration', '60'));
         $this->allowSync((bool) $this->storage->get('allow_sync', '0'));

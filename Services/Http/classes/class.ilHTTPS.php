@@ -127,12 +127,17 @@ class ilHTTPS
                 define('IL_COOKIE_SECURE', true);
             }
 
+            $options = [
+                "lifetime" => IL_COOKIE_EXPIRE,
+                "path" => IL_COOKIE_PATH,
+                "domain" => IL_COOKIE_DOMAIN,
+                "secure" => true,
+                "httponly" => IL_COOKIE_HTTPONLY,
+                "samesite" => "None"
+            ];
+
             session_set_cookie_params(
-                IL_COOKIE_EXPIRE,
-                IL_COOKIE_PATH,
-                IL_COOKIE_DOMAIN,
-                true,
-                IL_COOKIE_HTTPONLY
+                $options
             );
         }
     }

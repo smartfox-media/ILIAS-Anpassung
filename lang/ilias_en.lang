@@ -2076,6 +2076,9 @@ auth#:#auth_oidc_settings_secret#:#Client Key
 auth#:#auth_oidc_settings_section_user_sync#:#User Synchronisation Settings
 auth#:#auth_oidc_settings_session_duration#:#Duration
 auth#:#auth_oidc_settings_title#:#Configure OpenID Connect Authentification
+auth#:#auth_oidc_settings_logout_auth0_style_type#:#Auth0 logout
+auth#:#auth_oidc_settings_logout_auth0_style_option#:#Use the logout endpoint from auth0
+auth#:#auth_oidc_settings_logout_auth0_style#:#Auth0 Logout
 auth#:#auth_oidc_settings_txt#:#Text
 auth#:#auth_oidc_settings_txt_val_info#:#Enter a text to be displayed on the login page. The text will link automatically to the OpenID Connect login script.
 auth#:#auth_oidc_settings_user_attr#:#Attribute name of user accounts
